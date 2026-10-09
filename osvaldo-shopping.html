@@ -3,75 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OSVALDO SHOPPING</title>
+<title>OSVALDO SHOPPING - Luanda</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif}
 body{background:#f8f7f5;color:#111;padding-bottom:90px}
 .header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);padding:14px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee}
-.logo b{font-size:22px;display:block}.logo span{font-size:11px;letter-spacing:3px;color:#888}
-.pill{background:#111;color:white;padding:9px 14px;border-radius:100px;font-size:12px;font-weight:700;border:none;position:relative}
-.pill.cart{background:#ffcc00;color:#111}
+.logo b{font-size:22px;display:block;line-height:0.9}.logo span{font-size:11px;letter-spacing:3px;color:#888;font-weight:400}
+.pill{background:#111;color:white;padding:9px 14px;border-radius:100px;font-size:12px;font-weight:700;border:none;position:relative;cursor:pointer;margin-left:6px}
+.pill.cart{background:#ffcc00;color:#111}.pill.tools{background:#111}
 #cartCount{background:red;color:white;font-size:10px;padding:2px 6px;border-radius:100px;position:absolute;top:-6px;right:-6px;display:none}
 .banner{background:#111;color:white;text-align:center;padding:10px;font-size:11px;letter-spacing:2px}.banner span{color:#ffcc00}
 .cat{padding:12px 16px;display:flex;gap:8px;overflow-x:auto}.cat span{white-space:nowrap;background:white;border:1px solid #e5e5e5;padding:9px 18px;border-radius:100px;font-size:13px;font-weight:700;cursor:pointer}.cat span.active{background:#111;color:white}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px;max-width:800px;margin:0 auto}
 .card{background:white;border-radius:24px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.06);position:relative}
-.card img{width:100%;height:170px;object-fit:cover}
-.card-body{padding:12px}.card h3{font-size:14px;font-weight:700;min-height:34px}
+.card img{width:100%;height:170px;object-fit:cover}.card-body{padding:12px}.card h3{font-size:14px;font-weight:700;min-height:34px}
 .brand{font-size:10px;color:#999;letter-spacing:1px;text-transform:uppercase;margin:4px 0}
 .price-row{display:flex;justify-content:space-between;align-items:end;margin-top:8px}.price{font-size:18px;font-weight:900}.old{font-size:11px;color:#aaa;text-decoration:line-through}
 .buy{background:#111;color:white;width:34px;height:34px;border-radius:100px;display:flex;align-items:center;justify-content:center;border:none;font-size:18px;cursor:pointer}
 .badge{position:absolute;top:10px;left:10px;background:white;padding:5px 10px;border-radius:100px;font-size:10px;font-weight:900}
-#cartModal{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1000;display:none;padding:12px;overflow-y:auto}
+#cartModal,#toolsModal{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1000;display:none;padding:12px;overflow-y:auto}
 .cartBox{background:white;border-radius:28px;max-width:500px;margin:20px auto;overflow:hidden}
-.cartHeader{background:#111;color:white;padding:18px;display:flex;justify-content:space-between}
-.cartItem{display:flex;gap:12px;padding:14px;border-bottom:1px solid #f0f0f0}
+.cartHeader{background:#111;color:white;padding:18px;display:flex;justify-content:space-between;align-items:center}
+.cartItem{display:flex;gap:12px;padding:14px;border-bottom:1px solid #f0f0f0;align-items:center}
 .cartItem img{width:60px;height:60px;border-radius:12px;object-fit:cover}
-.qty{display:flex;gap:8px;align-items:center;margin-top:6px}.qty button{width:26px;height:26px;border-radius:100px;border:1px solid #ddd;background:white;font-weight:900}
+.qty{display:flex;gap:8px;align-items:center;margin-top:6px}.qty button{width:26px;height:26px;border-radius:100px;border:1px solid #ddd;background:white;font-weight:900;cursor:pointer}
 .fatura{background:#fafafa;border-radius:18px;padding:16px;margin:14px}
 .input{width:100%;padding:13px 16px;border-radius:14px;border:1px solid #eee;background:white;margin:6px 0;outline:none}
 .btn-black{width:100%;background:#111;color:white;padding:15px;border-radius:14px;border:none;font-weight:900;margin-top:10px;cursor:pointer}
 .btn-green{width:100%;background:#25D366;color:white;padding:15px;border-radius:14px;border:none;font-weight:900;margin-top:10px;cursor:pointer}
-.totalBox{padding:16px;background:#111;color:white}
-.totalLine{display:flex;justify-content:space-between;font-size:13px;color:#aaa}.totalLine.total{font-size:18px;color:white;font-weight:900;margin-top:6px;border-top:1px solid #333;padding-top:8px}
+.totalBox{padding:16px;background:#111;color:white}.totalLine{display:flex;justify-content:space-between;font-size:13px;color:#aaa}.totalLine.total{font-size:18px;color:white;font-weight:900;margin-top:6px;border-top:1px solid #333;padding-top:8px}
 #adm{position:fixed;inset:0;background:#f8f7f5;z-index:999;overflow-y:auto;display:none;padding:16px}
 .sheet{background:white;border-radius:28px;padding:20px;max-width:600px;margin:20px auto}
-.uploadBox{border:2px dashed #111;border-radius:18px;padding:16px;text-align:center;background:#fafafa;margin:8px 0;cursor:pointer}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:10px 0}.tabs button{white-space:nowrap;padding:10px 16px;border-radius:100px;border:1px solid #eee;background:white;font-weight:700;font-size:12px;cursor:pointer}.tabs button.on{background:#111;color:white}
+.uploadBox{border:2px dashed #111;border-radius:18px;padding:16px;text-align:center;background:#fafafa;margin:8px 0;cursor:pointer;display:block}
 .uploadBox input{display:none}
 #preview{width:100%;height:180px;object-fit:cover;border-radius:14px;margin-top:10px;display:none}
+.passWrap{position:relative}.eye{position:absolute;right:16px;top:50%;transform:translateY(-50%);cursor:pointer}
+.ferr{background:#fafafa;border-radius:18px;padding:14px;margin:10px 0}
 </style>
 </head>
 <body>
-<div class="header"><div class="logo"><b>OSVALDO</b><span>SHOPPING • LUANDA</span></div><div><button class="pill" onclick="openADM()">ADM</button><button class="pill cart" onclick="openCart()">🛒 <span id="cartCount">0</span></button></div></div>
-<div class="banner">ENTREGA 24H <span>• 953 351 052</span></div>
-<div class="cat"><span class="active" onclick="filtrar('todos',this)">Todos</span><span onclick="filtrar('tenis',this)">👟 Tênis</span><span onclick="filtrar('tech',this)">⌚ Tech</span><span onclick="filtrar('audio',this)">🎧 Áudio</span></div>
+
+<div class="header">
+<div class="logo"><b>OSVALDO</b><span>SHOPPING • LUANDA</span></div>
+<div style="display:flex">
+<button class="pill tools" onclick="openTools()">🛠️</button>
+<button class="pill" onclick="openADM()" style="background:#ffcc00;color:#111">ADM</button>
+<button class="pill cart" onclick="openCart()">🛒 <span id="cartCount">0</span></button>
+</div>
+</div>
+
+<div class="banner">ENTREGA 24H <span>• 953 351 052</span> • PAGAMENTO NA ENTREGA</div>
+
+<div class="cat" id="catBar">
+<span class="active" onclick="filtrar('todos',this)">Todos</span>
+<span onclick="filtrar('vendidos',this)">🔥 Mais vendidos</span>
+<span onclick="filtrar('tenis',this)">👟 Tênis</span>
+<span onclick="filtrar('tech',this)">⌚ Tech</span>
+<span onclick="filtrar('audio',this)">🎧 Áudio</span>
+</div>
+
 <div class="grid" id="grid"></div>
 
-<div id="cartModal"><div class="cartBox"><div class="cartHeader"><b>🛒 CARRINHO</b><button onclick="closeCart()" style="background:white;color:#111;border:none;padding:6px 12px;border-radius:100px;font-weight:900">✕</button></div><div id="cartItems"></div><div id="emptyCart" style="padding:40px;text-align:center;color:#999;display:none">Carrinho vazio</div><div class="fatura" id="faturaForm"><h4>📄 DADOS FATURA</h4><input class="input" id="cliNome" placeholder="Nome completo *"><input class="input" id="cliTel" placeholder="Telefone *"><input class="input" id="cliEnd" placeholder="Endereço *"><select class="input" id="cliMun"><option value="1000">Centro - 1000Kz</option><option value="1500">Cazenga / Benfica - 1500Kz</option><option value="2000">Viana / Kilamba - 2000Kz</option><option value="2500">Zango - 2500Kz</option></select><select class="input" id="cliPag"><option>Pagamento na entrega</option><option>Transferência</option><option>Express</option></select></div><div class="totalBox"><div class="totalLine"><span>Subtotal</span><span id="subTotal">0 Kz</span></div><div class="totalLine"><span>Entrega</span><span id="taxaEntrega">0 Kz</span></div><div class="totalLine total"><span>TOTAL</span><span id="grandTotal">0 Kz</span></div></div><div style="padding:14px"><button class="btn-green" onclick="finalizarCompra()">✅ FINALIZAR - GERAR FATURA</button><button class="btn-black" style="background:#eee;color:#111" onclick="closeCart()">Continuar</button></div></div></div>
+<!-- FERRAMENTAS - O QUE VOCÊ CIRCULOU -->
+<div id="toolsModal">
+<div class="cartBox">
+<div class="cartHeader"><b>🛠️ FERRAMENTAS OSVALDO</b><button onclick="closeTools()" style="background:white;color:#111;border:none;padding:6px 12px;border-radius:100px;font-weight:900">✕</button></div>
+<div style="padding:14px">
+<div class="tabs"><button class="on" onclick="abaTool(1)">Link</button><button onclick="abaTool(2)">Lucro</button><button onclick="abaTool(3)">Frete</button><button onclick="abaTool(4)">Cupom</button><button onclick="abaTool(5)">Etiqueta</button><button onclick="abaTool(6)">QR</button></div>
+<div id="t1"><div class="ferr"><b>🔗 Gerador de Link WhatsApp</b><input class="input" id="msgLink" placeholder="Mensagem ex: Olá quero comprar"><button class="btn-black" onclick="gerarLink()">Gerar Link</button><p id="rLink" style="font-size:11px;word-break:break-all;margin-top:8px"></p></div></div>
+<div id="t2" style="display:none"><div class="ferr"><b>💰 Calculadora de Lucro</b><input class="input" id="custo" type="number" placeholder="Custo do produto"><input class="input" id="venda" type="number" placeholder="Preço de venda"><button class="btn-black" onclick="calcLucro()">Calcular Lucro</button><p id="rLucro" style="margin-top:8px;font-weight:900"></p></div></div>
+<div id="t3" style="display:none"><div class="ferr"><b>🚚 Calculadora Frete Luanda</b><select class="input" id="mun"><option value="1000">Cazenga - 1500Kz</option><option value="2000">Viana - 2000Kz</option><option value="1000">Centro - 1000Kz</option><option value="2500">Zango - 2500Kz</option></select><input class="input" id="pProd" type="number" placeholder="Preço produto"><button class="btn-black" onclick="calcFrete()">Calcular Total com Frete</button><p id="rFrete" style="margin-top:8px;font-weight:900"></p></div></div>
+<div id="t4" style="display:none"><div class="ferr"><b>🏷️ Gerador de Cupom</b><input class="input" id="cNome" placeholder="Nome cupom ex: OSVALDO10"><input class="input" id="cDesc" type="number" placeholder="% desconto ex: 10"><button class="btn-black" onclick="gerarCupom()">Criar Cupom</button><p id="rCupom" style="margin-top:8px"></p></div></div>
+<div id="t5" style="display:none"><div class="ferr"><b>📦 Gerador de Etiqueta</b><input class="input" id="eNome" placeholder="Cliente"><input class="input" id="eTel" placeholder="Telefone"><input class="input" id="eEnd" placeholder="Endereço"><input class="input" id="eProd" placeholder="Produto"><button class="btn-black" onclick="gerarEti()">Gerar Etiqueta</button><div id="rEti" style="background:white;border:1px dashed #111;padding:12px;border-radius:12px;margin-top:10px;display:none"></div></div></div>
+<div id="t6" style="display:none"><div class="ferr"><b>📱 QR Code da Loja</b><p style="font-size:12px;color:#666">Link da loja:</p><p style="font-size:11px;word-break:break-all">https://lucas-32127.github.io/Lucas-Tech/osvaldo-shopping.html</p><img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://lucas-32127.github.io/Lucas-Tech/osvaldo-shopping.html" style="width:100%;max-width:250px;display:block;margin:12px auto;border-radius:16px"><a href="https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=https://lucas-32127.github.io/Lucas-Tech/osvaldo-shopping.html" target="_blank" class="btn-black" style="display:block;text-align:center;text-decoration:none">Baixar QR em Alta</a></div></div>
+</div>
+</div>
+</div>
 
+<!-- CARRINHO -->
+<div id="cartModal">
+<div class="cartBox">
+<div class="cartHeader"><b>🛒 CARRINHO</b><button onclick="closeCart()" style="background:white;color:#111;border:none;padding:6px 12px;border-radius:100px;font-weight:900">✕</button></div>
+<div id="cartItems"></div>
+<div id="emptyCart" style="padding:40px;text-align:center;color:#999;display:none">Carrinho vazio</div>
+<div class="fatura" id="faturaForm"><h4>📄 DADOS FATURA</h4><input class="input" id="cliNome" placeholder="Nome completo *"><input class="input" id="cliTel" placeholder="Telefone *"><input class="input" id="cliEnd" placeholder="Endereço *"><select class="input" id="cliMun"><option value="1000">Centro - 1000Kz</option><option value="1500">Cazenga / Benfica - 1500Kz</option><option value="2000">Viana / Kilamba - 2000Kz</option><option value="2500">Zango - 2500Kz</option></select><select class="input" id="cliPag"><option>Pagamento na entrega</option><option>Transferência</option><option>Express</option></select></div>
+<div class="totalBox"><div class="totalLine"><span>Subtotal</span><span id="subTotal">0 Kz</span></div><div class="totalLine"><span>Entrega</span><span id="taxaEntrega">0 Kz</span></div><div class="totalLine total"><span>TOTAL</span><span id="grandTotal">0 Kz</span></div></div>
+<div style="padding:14px"><button class="btn-green" onclick="finalizarCompra()">✅ FINALIZAR - GERAR FATURA</button><button class="btn-black" style="background:#eee;color:#111" onclick="closeCart()">Continuar</button></div>
+</div>
+</div>
+
+<!-- ADM -->
 <div id="adm">
 <div style="display:flex;justify-content:space-between;max-width:600px;margin:auto;padding:10px 0"><b>PAINEL</b><button onclick="document.getElementById('adm').style.display='none'" style="background:#111;color:white;border:none;padding:8px 14px;border-radius:100px">✕</button></div>
 <div class="sheet">
-<input class="input" type="password" id="senha" placeholder="Senha: osvaldo123">
+<h4>🔐 Acesso Restrito</h4>
+<div class="passWrap"><input class="input" type="password" id="senha" placeholder="••••••••" style="padding-right:50px"><span class="eye" onclick="let i=document.getElementById('senha'); i.type=i.type==='password'?'text':'password'">👁️</span></div>
 <button class="btn-black" onclick="login()">Entrar</button>
-<div id="logado" style="display:none">
-<h4 style="margin-top:15px">➕ Adicionar Produto com Foto</h4>
-<input class="input" id="nome" placeholder="Nome ex: Sabrina">
-<input class="input" id="preco" type="number" placeholder="Preço ex: 4000">
-
-<!-- NOVO UPLOAD -->
-<label class="uploadBox" for="fotoFile">
-<div id="uploadText">📸 CLIQUE AQUI PARA ESCOLHER FOTO DA GALERIA</div>
-<input type="file" id="fotoFile" accept="image/*" onchange="previewFoto(this)">
-<img id="preview">
-</label>
-
+<div id="logado" style="display:none;margin-top:20px">
+<h4>➕ Adicionar Produto</h4>
+<input class="input" id="nome" placeholder="Nome ex: Sabrina"><input class="input" id="preco" type="number" placeholder="Preço ex: 4000">
+<label class="uploadBox" for="fotoFile"><div id="uploadText">📸 CLIQUE PARA ESCOLHER FOTO DA GALERIA</div><input type="file" id="fotoFile" accept="image/*" onchange="previewFoto(this)"><img id="preview"></label>
 <input class="input" id="foto" placeholder="Ou cole link da foto (opcional)" style="font-size:12px">
-<select class="input" id="categoria"><option value="tech">⌚ Tech</option><option value="tenis">👟 Tênis</option><option value="audio">🎧 Áudio</option><option value="todos">Todos</option></select>
+<select class="input" id="categoria"><option value="tech">⌚ Tech</option><option value="tenis">👟 Tênis</option><option value="audio">🎧 Áudio</option><option value="vendidos">🔥 Mais vendidos</option><option value="todos">Todos</option></select>
 <input class="input" id="loja" placeholder="Marca ex: INDEFIRO">
 <button class="btn-black" onclick="add()">Adicionar Produto</button>
-<div id="lista"></div>
+<div id="lista" style="margin-top:16px"></div>
 </div>
 </div>
 </div>
@@ -79,79 +117,37 @@ body{background:#f8f7f5;color:#111;padding-bottom:90px}
 <script>
 const ZAP="244953351052";
 let filtroAtual='todos';
-let carrinho = JSON.parse(localStorage.getItem('osvaldo_cart'))||[];
+let carrinho=JSON.parse(localStorage.getItem('osvaldo_cart'))||[];
 let produtos=JSON.parse(localStorage.getItem('osvaldo_produtos_v4'))||[
-{nome:"Smartwatch X8 Ultra",preco:15000,foto:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600",loja:"OSVALDO TECH",cat:"tech"},
-{nome:"Tênis Nike Air",preco:18000,foto:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",loja:"OSVALDO SHOES",cat:"tenis"},
-{nome:"Fone Bluetooth",preco:8500,foto:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600",loja:"AUDIO",cat:"audio"}
+{nome:"Smartwatch X8 Ultra Original",preco:15000,foto:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600",loja:"OSVALDO TECH",cat:"tech"},
+{nome:"Tênis Nike Air Red",preco:18000,foto:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",loja:"OSVALDO SHOES",cat:"tenis"},
+{nome:"Fone Bluetooth Pro 2",preco:8500,foto:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600",loja:"AUDIO",cat:"audio"}
 ];
 let fotoBase64="";
 
-function previewFoto(input){
-if(input.files && input.files[0]){
-let reader=new FileReader();
-reader.onload=function(e){
-fotoBase64=e.target.result;
-document.getElementById('preview').src=fotoBase64;
-document.getElementById('preview').style.display='block';
-document.getElementById('uploadText').innerText='✅ Foto escolhida! Clique para trocar';
-}
-reader.readAsDataURL(input.files[0]);
-}
-}
-
+function previewFoto(input){if(input.files&&input.files[0]){let r=new FileReader();r.onload=function(e){fotoBase64=e.target.result;document.getElementById('preview').src=fotoBase64;document.getElementById('preview').style.display='block';document.getElementById('uploadText').innerText='✅ Foto pronta!'};r.readAsDataURL(input.files[0]);}}
 function filtrar(cat,el){filtroAtual=cat;document.querySelectorAll('.cat span').forEach(s=>s.classList.remove('active'));el.classList.add('active');render();}
 function openADM(){document.getElementById('adm').style.display='block';}
 function openCart(){document.getElementById('cartModal').style.display='block';renderCart();}
 function closeCart(){document.getElementById('cartModal').style.display='none';}
-function addToCart(idx){let prod=produtos[idx];let ex=carrinho.find(c=>c.nome===prod.nome);if(ex){ex.qtd++}else{carrinho.push({...prod,qtd:1})}localStorage.setItem('osvaldo_cart',JSON.stringify(carrinho));updateCount();}
+function openTools(){document.getElementById('toolsModal').style.display='block';}
+function closeTools(){document.getElementById('toolsModal').style.display='none';}
+function abaTool(n){for(let i=1;i<=6;i++)document.getElementById('t'+i).style.display='none';document.getElementById('t'+n).style.display='block';}
+function addToCart(idx){let p=produtos[idx];let ex=carrinho.find(c=>c.nome===p.nome);if(ex){ex.qtd++}else{carrinho.push({...p,qtd:1})}localStorage.setItem('osvaldo_cart',JSON.stringify(carrinho));updateCount();}
 function updateCount(){let c=carrinho.reduce((a,b)=>a+b.qtd,0);document.getElementById('cartCount').innerText=c;document.getElementById('cartCount').style.display=c>0?'block':'none';}
-
-function render(){
-let g=document.getElementById('grid');g.innerHTML="";let lista=document.getElementById('lista');lista.innerHTML="";
-let filtrados=filtroAtual==='todos'?produtos:produtos.filter(p=>p.cat===filtroAtual);
-filtrados.forEach(p=>{
-let idx=produtos.indexOf(p);let old=(p.preco*1.4).toFixed(0);
-g.innerHTML+=`<div class="card"><div class="badge">-30%</div><img src="${p.foto}"><div class="card-body"><div class="brand">${p.loja}</div><h3>${p.nome}</h3><div class="price-row"><div><div class="old">${old} Kz</div><div class="price">${p.preco} Kz</div></div><button class="buy" onclick="addToCart(${idx})">+</button></div></div></div>`;
-});
-produtos.forEach((p,i)=>{lista.innerHTML+=`<div style="display:flex;gap:8px;padding:8px;background:#fafafa;border-radius:12px;margin-top:8px;font-size:12px;align-items:center"><img src="${p.foto}" style="width:40px;height:40px;border-radius:8px;object-fit:cover">${p.nome} - ${p.preco}Kz <b style="color:red;margin-left:auto" onclick="produtos.splice(${i},1);localStorage.setItem('osvaldo_produtos_v4',JSON.stringify(produtos));render()">X</b></div>`});
-updateCount();
-}
-
-function renderCart(){
-let cont=document.getElementById('cartItems');let empty=document.getElementById('emptyCart');cont.innerHTML="";
-if(carrinho.length===0){empty.style.display='block';document.getElementById('faturaForm').style.display='none';}
-else{empty.style.display='none';document.getElementById('faturaForm').style.display='block';}
-let sub=0;carrinho.forEach((c,i)=>{sub+=c.preco*c.qtd;cont.innerHTML+=`<div class="cartItem"><img src="${c.foto}"><div style="flex:1"><b style="font-size:13px">${c.nome}</b><div style="font-size:12px;color:#888">${c.preco} Kz</div><div class="qty"><button onclick="changeQty(${i},-1)">-</button><span>${c.qtd}</span><button onclick="changeQty(${i},1)">+</button><span style="margin-left:auto;color:red;font-size:12px" onclick="removeItem(${i})">Remover</span></div></div></div>`});
-let frete=parseInt(document.getElementById('cliMun').value)||0;document.getElementById('subTotal').innerText=sub+" Kz";document.getElementById('taxaEntrega').innerText=frete+" Kz";document.getElementById('grandTotal').innerText=(sub+frete)+" Kz";
-}
+function render(){let g=document.getElementById('grid');g.innerHTML="";let lista=document.getElementById('lista');lista.innerHTML="";let f=filtroAtual==='todos'?produtos:produtos.filter(p=>p.cat===filtroAtual|| (filtroAtual==='vendidos'&&p.cat==='vendidos'));if(f.length===0&&filtroAtual==='vendidos')f=produtos.slice(0,2);f.forEach(p=>{let idx=produtos.indexOf(p);let old=(p.preco*1.4).toFixed(0);g.innerHTML+=`<div class="card"><div class="badge">-30%</div><img src="${p.foto}"><div class="card-body"><div class="brand">${p.loja}</div><h3>${p.nome}</h3><div class="price-row"><div><div class="old">${old} Kz</div><div class="price">${p.preco} Kz</div></div><button class="buy" onclick="addToCart(${idx})">+</button></div></div></div>`;});produtos.forEach((p,i)=>{lista.innerHTML+=`<div style="display:flex;gap:8px;padding:8px;background:#fafafa;border-radius:12px;margin-top:8px;font-size:12px;align-items:center"><img src="${p.foto}" style="width:40px;height:40px;border-radius:8px;object-fit:cover">${p.nome} <b style="color:red;margin-left:auto;cursor:pointer" onclick="produtos.splice(${i},1);localStorage.setItem('osvaldo_produtos_v4',JSON.stringify(produtos));render()">X</b></div>`});updateCount();}
+function renderCart(){let cont=document.getElementById('cartItems');let empty=document.getElementById('emptyCart');cont.innerHTML="";if(carrinho.length===0){empty.style.display='block';document.getElementById('faturaForm').style.display='none';}else{empty.style.display='none';document.getElementById('faturaForm').style.display='block';}let sub=0;carrinho.forEach((c,i)=>{sub+=c.preco*c.qtd;cont.innerHTML+=`<div class="cartItem"><img src="${c.foto}"><div style="flex:1"><b style="font-size:13px">${c.nome}</b><div style="font-size:12px;color:#888">${c.preco} Kz</div><div class="qty"><button onclick="changeQty(${i},-1)">-</button><span>${c.qtd}</span><button onclick="changeQty(${i},1)">+</button><span style="margin-left:auto;color:red;font-size:12px;cursor:pointer" onclick="removeItem(${i})">Remover</span></div></div></div>`});let frete=parseInt(document.getElementById('cliMun').value)||0;document.getElementById('subTotal').innerText=sub+" Kz";document.getElementById('taxaEntrega').innerText=frete+" Kz";document.getElementById('grandTotal').innerText=(sub+frete)+" Kz";}
 function changeQty(i,d){carrinho[i].qtd+=d;if(carrinho[i].qtd<=0)carrinho.splice(i,1);localStorage.setItem('osvaldo_cart',JSON.stringify(carrinho));renderCart();updateCount();}
 function removeItem(i){carrinho.splice(i,1);localStorage.setItem('osvaldo_cart',JSON.stringify(carrinho));renderCart();updateCount();}
 document.getElementById('cliMun').addEventListener('change',renderCart);
-function finalizarCompra(){
-let nome=document.getElementById('cliNome').value;let tel=document.getElementById('cliTel').value;let end=document.getElementById('cliEnd').value;
-if(!nome||!tel||!end){alert('Preencha nome, telefone e endereço!');return;}
-if(carrinho.length===0){alert('Carrinho vazio');return;}
-let frete=parseInt(document.getElementById('cliMun').value);let munText=document.getElementById('cliMun').options[document.getElementById('cliMun').selectedIndex].text;let pag=document.getElementById('cliPag').value;
-let sub=carrinho.reduce((a,b)=>a+b.preco*b.qtd,0);let total=sub+frete;let faturaNum="OSV-"+Date.now().toString().slice(-6);let data=new Date().toLocaleString('pt-AO');
-let listaProd=carrinho.map(c=>`• ${c.nome} x${c.qtd} = ${c.preco*c.qtd}Kz`).join('%0A');
-let msg=`*FATURA OSVALDO SHOPPING*%0A🧾 ${faturaNum}%0A📅 ${data}%0A%0A*CLIENTE*%0A👤 ${nome}%0A📱 ${tel}%0A📍 ${end} - ${munText}%0A💳 ${pag}%0A%0A*PRODUTOS*%0A${listaProd}%0A%0ASubtotal: ${sub}Kz%0AEntrega: ${frete}Kz%0A*TOTAL: ${total}Kz*`;
-carrinho=[];localStorage.setItem('osvaldo_cart',JSON.stringify(carrinho));updateCount();closeCart();
-window.open(`https://wa.me/${ZAP}?text=${msg}`,'_blank');
-}
-function login(){if(document.getElementById('senha').value==="osvaldo123"){document.getElementById('logado').style.display='block';}}
-function add(){
-let n=document.getElementById('nome').value;let pr=parseInt(document.getElementById('preco').value);let fLink=document.getElementById('foto').value;let lj=document.getElementById('loja').value;let ct=document.getElementById('categoria').value;
-let fotoFinal = fotoBase64 || fLink || 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600';
-if(!n||!pr){alert('Coloque nome e preço!');return;}
-produtos.unshift({nome:n,preco:pr,foto:fotoFinal,loja:lj||'OSVALDO',cat:ct});
-localStorage.setItem('osvaldo_produtos_v4',JSON.stringify(produtos));
-// limpar
-document.getElementById('nome').value='';document.getElementById('preco').value='';document.getElementById('foto').value='';document.getElementById('loja').value='';
-fotoBase64="";document.getElementById('preview').style.display='none';document.getElementById('uploadText').innerText='📸 CLIQUE AQUI PARA ESCOLHER FOTO DA GALERIA';document.getElementById('fotoFile').value='';
-render();
-alert('Produto Sabrina adicionado com foto! ✅');
-}
+function finalizarCompra(){let nome=document.getElementById('cliNome').value;let tel=document.getElementById('cliTel').value;let end=document.getElementById('cliEnd').value;if(!nome||!tel||!end){alert('Preencha nome, telefone e endereço!');return;}if(carrinho.length===0){alert('Carrinho vazio');return;}let frete=parseInt(document.getElementById('cliMun').value);let munText=document.getElementById('cliMun').options[document.getElementById('cliMun').selectedIndex].text;let pag=document.getElementById('cliPag').value;let sub=carrinho.reduce((a,b)=>a+b.preco*b.qtd,0);let total=sub+frete;let faturaNum="OSV-"+Date.now().toString().slice(-6);let data=new Date().toLocaleString('pt-AO');let listaProd=carrinho.map(c=>`• ${c.nome} x${c.qtd} = ${c.preco*c.qtd}Kz`).join('%0A');let msg=`*FATURA OSVALDO SHOPPING*%0A🧾 ${faturaNum}%0A📅 ${data}%0A%0A*CLIENTE*%0A👤 ${nome}%0A📱 ${tel}%0A📍 ${end} - ${munText}%0A💳 ${pag}%0A%0A*PRODUTOS*%0A${listaProd}%0A%0ASubtotal: ${sub}Kz%0AEntrega: ${frete}Kz%0A*TOTAL: ${total}Kz*`;carrinho=[];localStorage.setItem('osvaldo_cart',JSON.stringify(carrinho));updateCount();closeCart();window.open(`https://wa.me/${ZAP}?text=${msg}`,'_blank');}
+function login(){if(document.getElementById('senha').value==="osvaldo123"){document.getElementById('logado').style.display='block';}else{alert('Senha incorreta!');}}
+function add(){let n=document.getElementById('nome').value;let pr=parseInt(document.getElementById('preco').value);let fLink=document.getElementById('foto').value;let lj=document.getElementById('loja').value;let ct=document.getElementById('categoria').value;let fotoFinal=fotoBase64||fLink||'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600';if(!n||!pr){alert('Nome e preço!');return;}produtos.unshift({nome:n,preco:pr,foto:fotoFinal,loja:lj||'OSVALDO',cat:ct});localStorage.setItem('osvaldo_produtos_v4',JSON.stringify(produtos));document.getElementById('nome').value='';document.getElementById('preco').value='';document.getElementById('foto').value='';document.getElementById('loja').value='';fotoBase64="";document.getElementById('preview').style.display='none';document.getElementById('uploadText').innerText='📸 CLIQUE PARA ESCOLHER FOTO DA GALERIA';document.getElementById('fotoFile').value='';render();}
+function gerarLink(){let m=document.getElementById('msgLink').value;let link=`https://wa.me/${ZAP}?text=${encodeURIComponent(m)}`;document.getElementById('rLink').innerHTML=`<a href="${link}" target="_blank">${link}</a><br><br><button class="btn-black" onclick="navigator.clipboard.writeText('${link}')">Copiar</button>`;}
+function calcLucro(){let c=+document.getElementById('custo').value||0,v=+document.getElementById('venda').value||0;document.getElementById('rLucro').innerHTML=`Lucro: <b style="color:green">${v-c} Kz (${(((v-c)/v)*100).toFixed(1)}%)</b>`;}
+function calcFrete(){let mun=document.getElementById('mun').value;let val=parseInt(mun.match(/\d+/)[0]);let prod=+document.getElementById('pProd').value||0;document.getElementById('rFrete').innerHTML=`Total: <b>${prod+val} Kz</b> (${mun})`;}
+function gerarCupom(){let n=document.getElementById('cNome').value||'OSVALDO10',d=document.getElementById('cDesc').value||10;document.getElementById('rCupom').innerHTML=`✅ Cupom <b>${n}</b> - ${d}% OFF criado!`;}
+function gerarEti(){let n=document.getElementById('eNome').value,t=document.getElementById('eTel').value,e=document.getElementById('eEnd').value,p=document.getElementById('eProd').value;let d=document.getElementById('rEti');d.style.display='block';d.innerHTML=`<b>OSVALDO SHOPPING - 953 351 052</b><br>Cliente: ${n}<br>Tel:${t}<br>End:${e}<br>Prod:${p}<br><b>PAGAMENTO NA ENTREGA</b>`;}
 render();
 </script>
 </body>
