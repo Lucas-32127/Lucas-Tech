@@ -1,0 +1,16 @@
+{
+  "name": "LUCAS TECH SHOPPING",
+  "short_name": "LUCAS SHOPPING",
+  "description": "Shopping de Luanda - 50 Lojas",
+  "start_url": "./plataforma.html",
+  "display": "standalone",
+  "background_color": "#0a0f1c",
+  "theme_color": "#ffcc00",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3081/3081559.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
