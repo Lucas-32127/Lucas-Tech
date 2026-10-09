@@ -3,142 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OSVALDO SHOPPING</title>
+<title>OSVALDO SHOPPING | Luxury Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#0a0f1c;color:white}
-.header{background:#132040;padding:15px;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #ffcc00;position:sticky;top:0;z-index:100}
-.header h1{color:#ffcc00;font-size:20px}
-.btn-top{background:#ffcc00;color:#0a2540;border:none;padding:8px 14px;border-radius:20px;font-weight:900;font-size:12px;margin-left:6px;cursor:pointer}
-.banner{background:#ffcc00;color:#0a2540;text-align:center;padding:8px;font-weight:900;font-size:12px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px;max-width:700px;margin:auto}
-.loja{background:#132040;border-radius:12px;overflow:hidden;text-align:center;padding-bottom:12px;border:1px solid #1e335a}
-.loja img{width:100%;height:135px;object-fit:cover}
-.loja h3{font-size:13px;margin:6px}
-.loja.preco{color:#ffcc00;font-weight:900}
-.btn-wpp{background:#25D366;color:white;padding:7px 14px;border-radius:20px;font-size:12px;text-decoration:none;display:inline-block;margin-top:5px;font-weight:bold}
-#adm{display:none;position:fixed;inset:0;background:#0a0f1c;z-index:999;overflow-y:auto;padding:15px}
-.caixa{background:#132040;padding:18px;border-radius:14px;max-width:600px;margin:auto;border:2px solid #ffcc00;margin-bottom:20px}
-.caixa input,.caixa textarea,.caixa select{width:100%;padding:11px;margin:6px 0;border-radius:8px;border:1px solid #1e335a;background:#0a0f1c;color:white}
-.btn{width:100%;background:#ffcc00;color:#0a2540;padding:12px;border:none;border-radius:25px;font-weight:900;margin-top:10px;cursor:pointer}
-.ferr{border:1px solid #1e335a;background:#0a0f1c;padding:12px;border-radius:10px;margin:10px 0}
-.ferr b{color:#ffcc00}
-.tab{display:flex;gap:8px;overflow-x:auto;padding:10px 0}
-.tab button{white-space:nowrap;background:#1e335a;color:white;border:none;padding:8px 14px;border-radius:20px;font-size:12px}
-.tab button.active{background:#ffcc00;color:#0a2540;font-weight:900}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif}
+body{background:#f8f7f5;color:#111}
+.header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);padding:14px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee}
+.logo{font-weight:900;letter-spacing:-1px;line-height:0.9}
+.logo b{font-size:22px;display:block}
+.logo span{font-size:12px;font-weight:400;letter-spacing:3px;color:#888}
+.pill{background:#111;color:white;padding:8px 14px;border-radius:100px;font-size:12px;font-weight:700;border:none;margin-left:6px}
+.banner-lux{background:#111;color:white;text-align:center;padding:12px;font-size:11px;letter-spacing:2px}
+.banner-lux span{color:#ffcc00}
+.cat{padding:12px 16px;display:flex;gap:8px;overflow-x:auto}
+.cat span{white-space:nowrap;background:white;border:1px solid #e5e5e5;padding:8px 16px;border-radius:100px;font-size:12px;font-weight:700}
+.cat span.active{background:#111;color:white;border-color:#111}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px;max-width:800px;margin:0 auto}
+.card{background:white;border-radius:24px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.06);position:relative}
+.card img{width:100%;height:170px;object-fit:cover;background:#f2f2f2}
+.card-body{padding:12px}
+.card h3{font-size:14px;font-weight:700;line-height:1.2;min-height:34px}
+.brand{font-size:10px;color:#999;letter-spacing:1px;text-transform:uppercase;margin:4px 0}
+.price-row{display:flex;justify-content:space-between;align-items:end;margin-top:8px}
+.price{font-size:18px;font-weight:900}
+.old{font-size:11px;color:#aaa;text-decoration:line-through}
+.buy{background:#111;color:white;width:32px;height:32px;border-radius:100px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:16px}
+.badge{position:absolute;top:10px;left:10px;background:white;padding:5px 10px;border-radius:100px;font-size:10px;font-weight:900;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
+#adm{position:fixed;inset:0;background:#f8f7f5;z-index:999;overflow-y:auto;display:none;padding:16px}
+.sheet{background:white;border-radius:28px;padding:20px;max-width:600px;margin:20px auto;box-shadow:0 20px 60px rgba(0,0,0,0.1)}
+.input{width:100%;padding:14px 16px;border-radius:14px;border:1px solid #eee;background:#fafafa;margin:6px 0;outline:none}
+.input:focus{border-color:#111;background:white}
+.btn-black{width:100%;background:#111;color:white;padding:14px;border-radius:14px;border:none;font-weight:900;margin-top:10px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:10px 0}
+.tabs button{white-space:nowrap;padding:10px 16px;border-radius:100px;border:1px solid #eee;background:white;font-weight:700;font-size:12px}
+.tabs button.on{background:#111;color:white}
+.ferr{background:#fafafa;border-radius:18px;padding:14px;margin:10px 0}
 </style>
 </head>
 <body>
+
 <div class="header">
-<h1>OSVALDO <span style="color:white">SHOPPING</span></h1>
+<div class="logo"><b>OSVALDO</b><span>SHOPPING • LUANDA</span></div>
 <div>
-<button class="btn-top" onclick="abrirADM()">🛠️ FERRAMENTAS</button>
-<button class="btn-top" onclick="abrirADM()">🔐 ADM</button>
+<button class="pill" onclick="openADM()">🛠️</button>
+<button class="pill" onclick="openADM()" style="background:#ffcc00;color:#111">ADM</button>
 </div>
 </div>
-<div class="banner">🔥 OSVALDO SHOPPING - 953 351 052 - ENTREGA 24H 🔥</div>
+
+<div class="banner-lux">ENTREGA 24H <span>• 953 351 052</span> • PAGAMENTO NA ENTREGA</div>
+
+<div class="cat">
+<span class="active">Todos</span><span>🔥 Mais vendidos</span><span>👟 Tênis</span><span>⌚ Tech</span><span>🎧 Áudio</span>
+</div>
+
 <div class="grid" id="grid"></div>
 
 <div id="adm">
-<div style="display:flex;justify-content:space-between;align-items:center;max-width:600px;margin:10px auto">
-<h2 style="color:#ffcc00">PAINEL OSVALDO</h2>
-<button onclick="document.getElementById('adm').style.display='none'" style="background:#ff3b3b;color:white;border:none;padding:8px 14px;border-radius:20px">X FECHAR</button>
+<div style="display:flex;justify-content:space-between;max-width:600px;margin:auto;padding:10px 0">
+<b>OSVALDO OS • PAINEL</b>
+<button onclick="document.getElementById('adm').style.display='none'" style="background:#111;color:white;border:none;padding:8px 14px;border-radius:100px">✕</button>
 </div>
 
-<div class="caixa">
-<h3 style="color:#ffcc00">🔐 Login ADM</h3>
-<input type="password" id="senha" placeholder="Senha: osvaldo123">
-<button class="btn" onclick="login()">ENTRAR</button>
+<div class="sheet">
+<h3>🔐 Acesso Dono</h3>
+<input class="input" type="password" id="senha" placeholder="Senha: osvaldo123">
+<button class="btn-black" onclick="login()">Entrar no sistema</button>
+
 <div id="logado" style="display:none">
-
-<div class="tab">
-<button class="active" onclick="aba(1)">➕ Produtos</button>
-<button onclick="aba(2)">🔗 Links</button>
-<button onclick="aba(3)">💰 Lucro</button>
-<button onclick="aba(4)">🚚 Entrega</button>
-<button onclick="aba(5)">🏷️ Cupom</button>
-<button onclick="aba(6)">📦 Etiqueta</button>
+<div class="tabs">
+<button class="on" onclick="aba(1)">Produtos</button>
+<button onclick="aba(2)">Link</button>
+<button onclick="aba(3)">Lucro</button>
+<button onclick="aba(4)">Frete</button>
+<button onclick="aba(5)">Cupom</button>
+<button onclick="aba(6)">Etiqueta</button>
 </div>
 
-<!-- ABA 1 PRODUTOS -->
-<div id="aba1">
-<h4>Adicionar Produto</h4>
-<input id="nome" placeholder="Nome produto">
-<input id="preco" placeholder="Preço">
-<input id="foto" placeholder="Link foto">
-<input id="loja" placeholder="Loja">
-<button class="btn" onclick="add()">SALVAR PRODUTO</button>
+<div id="a1">
+<input class="input" id="nome" placeholder="Nome do produto">
+<input class="input" id="preco" placeholder="Preço ex: 15000">
+<input class="input" id="foto" placeholder="Link da foto">
+<input class="input" id="loja" placeholder="Marca / Loja">
+<button class="btn-black" onclick="add()">+ Adicionar na vitrine</button>
 <div id="lista"></div>
 </div>
 
-<!-- ABA 2 LINK -->
-<div id="aba2" style="display:none">
-<div class="ferr">
-<b>🔗 Gerador de Link 1 Clique</b>
-<input id="msgLink" placeholder="Mensagem Ex: Promoção tênis 18.000Kz">
-<button class="btn" onclick="gerarLink()">Gerar Link</button>
-<p id="resLink" style="font-size:11px;margin-top:8px;word-break:break-all"></p>
-</div>
-<div class="ferr">
-<b>📢 Gerador de Descrição que Vende</b>
-<select id="tipoDesc"><option>Smartwatch</option><option>Tênis</option><option>Fone</option><option>Roupa</option></select>
-<button class="btn" onclick="gerarDesc()">Gerar Descrição</button>
-<textarea id="resDesc" rows="4" placeholder="Descrição aparece aqui"></textarea>
+<div id="a2" style="display:none">
+<div class="ferr"><b>Gerador de Link Mágico</b>
+<input class="input" id="msgLink" placeholder="O que quer divulgar?">
+<button class="btn-black" onclick="gerarLink()">Gerar link</button>
+<p id="rLink" style="font-size:11px;word-break:break-all;margin-top:8px"></p>
 </div>
 </div>
 
-<!-- ABA 3 LUCRO -->
-<div id="aba3" style="display:none">
-<div class="ferr">
-<b>💰 Calculadora de Lucro + Frete</b>
-<input id="custo" type="number" placeholder="Teu custo">
-<input id="venda" type="number" placeholder="Preço venda">
-<input id="frete" type="number" placeholder="Custo entrega (ex: 1500)">
-<button class="btn" onclick="calcLucro()">Calcular</button>
-<p id="resLucro"></p>
-</div>
-<div class="ferr">
-<b>📊 Meta de Vendas Diária</b>
-<input id="metaLucro" type="number" placeholder="Quanto queres lucrar no mês? Ex: 300000">
-<button class="btn" onclick="calcMeta()">Calcular Meta</button>
-<p id="resMeta"></p>
+<div id="a3" style="display:none">
+<div class="ferr"><b>Calculadora Inteligente</b>
+<input class="input" id="custo" type="number" placeholder="Custo">
+<input class="input" id="venda" type="number" placeholder="Venda">
+<button class="btn-black" onclick="calcLucro()">Calcular lucro real</button>
+<p id="rLucro"></p>
 </div>
 </div>
 
-<!-- ABA 4 ENTREGA -->
-<div id="aba4" style="display:none">
-<div class="ferr">
-<b>🚚 Calculadora Entrega Luanda</b>
-<select id="municipio"><option>Cazenga - 1500Kz</option><option>Viana - 2000Kz</option><option>Kilamba - 2000Kz</option><option>Zango - 2500Kz</option><option>Centro - 1000Kz</option><option>Benfica - 1500Kz</option></select>
-<input id="precoProd" type="number" placeholder="Preço produto">
-<button class="btn" onclick="calcEntrega()">Calcular Total Cliente</button>
-<p id="resEntrega"></p>
+<div id="a4" style="display:none">
+<div class="ferr"><b>Frete Luanda</b>
+<select class="input" id="mun"><option>Cazenga - 1500</option><option>Viana - 2000</option><option>Centro - 1000</option><option>Kilamba - 2000</option></select>
+<input class="input" id="pProd" type="number" placeholder="Preço produto">
+<button class="btn-black" onclick="calcFrete()">Calcular total</button>
+<p id="rFrete"></p>
 </div>
 </div>
 
-<!-- ABA 5 CUPOM -->
-<div id="aba5" style="display:none">
-<div class="ferr">
-<b>🏷️ Gerador de Cupom</b>
-<input id="cupomNome" placeholder="Nome cupom Ex: OSVALDO10">
-<input id="cupomDesc" type="number" placeholder="% desconto Ex: 10">
-<button class="btn" onclick="gerarCupom()">Gerar Cupom</button>
-<p id="resCupom"></p>
-</div>
-</div>
-
-<!-- ABA 6 ETIQUETA -->
-<div id="aba6" style="display:none">
-<div class="ferr">
-<b>📦 Gerador de Etiqueta de Entrega</b>
-<input id="etiNome" placeholder="Nome cliente">
-<input id="etiTel" placeholder="Telefone cliente">
-<input id="etiEnd" placeholder="Endereço">
-<input id="etiProd" placeholder="Produto">
-<button class="btn" onclick="gerarEtiqueta()">Gerar Etiqueta</button>
-<div id="resEtiqueta" style="background:white;color:black;padding:12px;border-radius:8px;margin-top:10px;font-size:12px;display:none"></div>
-</div>
-</div>
+<div id="a5" style="display:none"><div class="ferr"><b>Cupom</b><input class="input" id="cNome" placeholder="OSVALDO10"><input class="input" id="cDesc" placeholder="%"><button class="btn-black" onclick="gerarCupom()">Criar</button><p id="rCupom"></p></div></div>
+<div id="a6" style="display:none"><div class="ferr"><b>Etiqueta</b><input class="input" id="eNome" placeholder="Cliente"><input class="input" id="eTel" placeholder="Tel"><input class="input" id="eEnd" placeholder="Endereço"><input class="input" id="eProd" placeholder="Produto"><button class="btn-black" onclick="gerarEti()">Gerar</button><div id="rEti" style="background:white;border:1px dashed #111;padding:12px;border-radius:12px;margin-top:10px;display:none"></div></div></div>
 
 </div>
 </div>
@@ -146,29 +123,28 @@ body{background:#0a0f1c;color:white}
 
 <script>
 const ZAP="244953351052";
-function aba(n){for(let i=1;i<=6;i++)document.getElementById('aba'+i).style.display='none'; document.getElementById('aba'+n).style.display='block';}
+function aba(n){for(let i=1;i<=6;i++)document.getElementById('a'+i).style.display='none'; document.getElementById('a'+n).style.display='block';}
+function openADM(){document.getElementById('adm').style.display='block';}
 let produtos=JSON.parse(localStorage.getItem('osvaldo_produtos'))||[
-{nome:"Smartwatch X8 Ultra",preco:"15000",foto:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",loja:"Osvaldo Tech"},
-{nome:"Tênis Nike Air",preco:"18000",foto:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",loja:"Osvaldo Shoes"},
-{nome:"Fone Bluetooth Pro",preco:"8500",foto:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500",loja:"Osvaldo Eletrônicos"}
+{nome:"Smartwatch X8 Ultra Original",preco:"15000",foto:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600",loja:"OSVALDO TECH"},
+{nome:"Tênis Nike Air Red",preco:"18000",foto:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",loja:"OSVALDO SHOES"},
+{nome:"Fone Bluetooth Pro 2",preco:"8500",foto:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600",loja:"AUDIO"}
 ];
 function render(){
-let g=document.getElementById('grid');g.innerHTML=""; let l=document.getElementById('lista');l.innerHTML="";
+let g=document.getElementById('grid');g.innerHTML="";let l=document.getElementById('lista');l.innerHTML="";
 produtos.forEach((p,i)=>{
-g.innerHTML+=`<div class="loja"><img src="${p.foto}"><h3>${p.nome}</h3><div style="font-size:11px;color:#aaa">${p.loja}</div><div class="preco">${p.preco} Kz</div><a class="btn-wpp" href="https://wa.me/${ZAP}?text=Olá%20OSVALDO%20SHOPPING!%20Quero%20${encodeURIComponent(p.nome)}">Comprar 1 Clique</a></div>`;
-l.innerHTML+=`<div style="background:#0a0f1c;padding:8px;margin:5px 0;border-radius:8px;display:flex;justify-content:space-between;font-size:12px">${p.nome} <span style="color:red" onclick="produtos.splice(${i},1);localStorage.setItem('osvaldo_produtos',JSON.stringify(produtos));render()">Excluir</span></div>`;
+let old=(parseInt(p.preco)*1.4).toFixed(0);
+g.innerHTML+=`<div class="card"><div class="badge">-30%</div><img src="${p.foto}"><div class="card-body"><div class="brand">${p.loja}</div><h3>${p.nome}</h3><div class="price-row"><div><div class="old">${old} Kz</div><div class="price">${p.preco} Kz</div></div><a class="buy" href="https://wa.me/${ZAP}?text=Olá%20OSVALDO%20SHOPPING!%20Quero%20${encodeURIComponent(p.nome)}">↗</a></div></div></div>`;
+l.innerHTML+=`<div style="display:flex;justify-content:space-between;padding:10px;background:#fafafa;border-radius:12px;margin-top:8px;font-size:12px">${p.nome} <b style="color:red" onclick="produtos.splice(${i},1);localStorage.setItem('osvaldo_produtos',JSON.stringify(produtos));render()">Excluir</b></div>`;
 });
 }
 function login(){if(document.getElementById('senha').value==="osvaldo123"){document.getElementById('logado').style.display='block';}}
-function add(){let n=document.getElementById('nome').value, pr=document.getElementById('preco').value, f=document.getElementById('foto').value, lj=document.getElementById('loja').value; if(!n||!pr)return; produtos.unshift({nome:n,preco:pr,foto:f||'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500',loja:lj||'Osvaldo Shopping'}); localStorage.setItem('osvaldo_produtos',JSON.stringify(produtos)); render();}
-function abrirADM(){document.getElementById('adm').style.display='block';}
-function gerarLink(){let m=document.getElementById('msgLink').value; let link=`https://wa.me/${ZAP}?text=${encodeURIComponent(m)}`; document.getElementById('resLink').innerHTML=`<a href="${link}" style="color:#25D366">${link}</a>`;}
-function gerarDesc(){let t=document.getElementById('tipoDesc').value; document.getElementById('resDesc').value=`🔥 ${t} ORIGINAL - OSVALDO SHOPPING 🔥\n✅ Entrega 24h em Luanda\n✅ Pagamento na entrega\n✅ Garantia 7 dias\n📲 Encomende agora: 953 351 052\n⚠️ Stock limitado!`;}
-function calcLucro(){let c=+document.getElementById('custo').value||0, v=+document.getElementById('venda').value||0, f=+document.getElementById('frete').value||0; let l=v-c-f; document.getElementById('resLucro').innerHTML=`Lucro líquido: <b style="color:#25D366">${l} Kz</b>`;}
-function calcMeta(){let m=+document.getElementById('metaLucro').value||0; document.getElementById('resMeta').innerHTML=`Precisas vender <b>${(m/30).toFixed(0)} Kz por dia</b> para lucrar ${m} Kz/mês`;}
-function calcEntrega(){let mun=document.getElementById('municipio').value; let val=parseInt(mun.match(/\d+/)[0]); let prod=+document.getElementById('precoProd').value||0; document.getElementById('resEntrega').innerHTML=`Total cliente: <b>${prod+val} Kz</b> (${mun})`;}
-function gerarCupom(){let n=document.getElementById('cupomNome').value||'OSVALDO10', d=document.getElementById('cupomDesc').value||10; document.getElementById('resCupom').innerHTML=`✅ Cupom: <b style="color:#ffcc00">${n}</b> - ${d}% OFF válido hoje!`;}
-function gerarEtiqueta(){let n=document.getElementById('etiNome').value, t=document.getElementById('etiTel').value, e=document.getElementById('etiEnd').value, p=document.getElementById('etiProd').value; let div=document.getElementById('resEtiqueta'); div.style.display='block'; div.innerHTML=`<b>OSVALDO SHOPPING - 953 351 052</b><br>Cliente: ${n}<br>Tel: ${t}<br>End: ${e}<br>Produto: ${p}<br><b>Pagamento na entrega</b>`;}
+function add(){let n=document.getElementById('nome').value, pr=document.getElementById('preco').value, f=document.getElementById('foto').value, lj=document.getElementById('loja').value; if(!n||!pr)return; produtos.unshift({nome:n,preco:pr,foto:f||'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600',loja:lj||'OSVALDO'}); localStorage.setItem('osvaldo_produtos',JSON.stringify(produtos)); render();}
+function gerarLink(){let m=document.getElementById('msgLink').value; let link=`https://wa.me/${ZAP}?text=${encodeURIComponent(m)}`; document.getElementById('rLink').innerHTML=`<a style="color:#111" href="${link}">${link}</a>`;}
+function calcLucro(){let c=+document.getElementById('custo').value||0,v=+document.getElementById('venda').value||0; document.getElementById('rLucro').innerHTML=`Lucro: <b>${v-c} Kz</b>`;}
+function calcFrete(){let mun=document.getElementById('mun').value; let val=parseInt(mun.match(/\d+/)[0]); let prod=+document.getElementById('pProd').value||0; document.getElementById('rFrete').innerHTML=`Total: ${prod+val} Kz`;}
+function gerarCupom(){let n=document.getElementById('cNome').value||'OSVALDO10', d=document.getElementById('cDesc').value||10; document.getElementById('rCupom').innerHTML=`Cupom ${n} - ${d}% OFF`;}
+function gerarEti(){let n=document.getElementById('eNome').value, t=document.getElementById('eTel').value, e=document.getElementById('eEnd').value, p=document.getElementById('eProd').value; let d=document.getElementById('rEti'); d.style.display='block'; d.innerHTML=`OSVALDO SHOPPING 953 351 052<br>Cliente: ${n}<br>Tel:${t}<br>End:${e}<br>Prod:${p}`;}
 render();
 </script>
 </body>
