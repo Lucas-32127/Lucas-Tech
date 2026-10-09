@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plataforma de Negócios - LUCAS TECH | Shopping de Luanda</title>
+<title>Plataforma de Negócios - LUCAS TECH Shopping Luanda</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{background:#0a0f1c;color:white}
 .top{background:#ffcc00;color:#0a2540;text-align:center;padding:10px;font-weight:900;font-size:14px}
 .header{background:#0a2540;padding:25px;text-align:center;border-bottom:3px solid #ffcc00}
@@ -13,27 +13,25 @@ body{background:#0a0f1c;color:white}
 .header h1 span{color:white}
 .search-box{max-width:600px;margin:20px auto;padding:0 20px}
 .search-box input{width:100%;padding:15px;border-radius:30px;border:2px solid #ffcc00;background:#132040;color:white;font-size:16px;outline:none}
-.search-box input::placeholder{color:#888}
-.filtros{display:flex;gap:10px;overflow-x:auto;padding:10px 20px;max-width:600px;margin:auto}
-.filtro{background:#132040;border:1px solid #1e335a;padding:8px 16px;border-radius:20px;font-size:13px;white-space:nowrap;cursor:pointer}
+.filtros{display:flex;gap:10px;overflow-x:auto;padding:10px 20px;max-width:700px;margin:auto}
+.filtro{background:#132040;border:1px solid #1e335a;padding:8px 16px;border-radius:20px;font-size:13px;white-space:nowrap}
 .filtro.ativo{background:#ffcc00;color:#0a2540;font-weight:bold}
-.plataforma-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;padding:20px;max-width:700px;margin:auto}
-.negocio-card{background:#132040;border-radius:15px;overflow:hidden;border:1px solid #1e335a;transition:0.2s}
-.negocio-card:hover{border-color:#ffcc00;transform:translateY(-3px)}
-.negocio-img{height:110px;background:linear-gradient(135deg,#1e335a,#0a2540);display:flex;align-items:center;justify-content:center;font-size:40px}
-.negocio-info{padding:12px}
-.negocio-info h3{font-size:14px;color:white;margin-bottom:3px}
-.negocio-info p{font-size:11px;color:#aaa;margin-bottom:8px}
-.negocio-tag{background:rgba(255,204,0,0.15);color:#ffcc00;font-size:10px;padding:3px 8px;border-radius:10px;font-weight:bold}
-.negocio-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
-.btn-wp{background:#25D366;color:white;padding:6px 12px;border-radius:20px;font-size:11px;text-decoration:none;font-weight:bold}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;padding:20px;max-width:700px;margin:auto}
+.card{background:#132040;border-radius:15px;overflow:hidden;border:1px solid #1e335a}
+.card:hover{border-color:#ffcc00}
+.img{height:110px;background:linear-gradient(135deg,#1e335a,#0a2540);display:flex;align-items:center;justify-content:center;font-size:40px}
+.info{padding:12px}
+.info h3{font-size:14px;margin-bottom:3px}
+.info p{font-size:11px;color:#aaa;margin-bottom:8px}
+.tag{background:rgba(255,204,0,0.15);color:#ffcc00;font-size:10px;padding:3px 8px;border-radius:10px;font-weight:bold}
+.footer-card{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.btn{color:white;padding:6px 12px;border-radius:20px;font-size:11px;text-decoration:none;font-weight:bold}
+.btn-wp{background:#25D366}
 .destaque{grid-column:1 / -1;background:linear-gradient(135deg,#0a2540,#132040);border:2px solid #ffcc00;display:flex;align-items:center;padding:15px}
-.destaque .negocio-img{width:80px;height:80px;border-radius:12px;margin-right:15px}
-.cta-box{background:#ffcc00;border-radius:15px;padding:25px;margin:20px;max-width:600px;margin:20px auto;text-align:center;color:#0a2540}
-.cta-box h2{font-size:22px;margin-bottom:10px}
-.cta-box p{font-size:14px;margin-bottom:15px;opacity:0.8}
-.btn-cta{background:#0a2540;color:#ffcc00;padding:15px 30px;border-radius:30px;text-decoration:none;font-weight:900;display:inline-block;font-size:16px}
-.footer{text-align:center;padding:20px;color:#555;font-size:12px;border-top:1px solid #1a2a4a;margin-top:20px}
+.destaque .img{width:80px;height:80px;border-radius:12px;margin-right:15px}
+.cta{background:#ffcc00;border-radius:15px;padding:25px;margin:20px auto;max-width:600px;text-align:center;color:#0a2540}
+.btn-cta{background:#0a2540;color:#ffcc00;padding:15px 30px;border-radius:30px;text-decoration:none;font-weight:900;display:inline-block;font-size:16px;margin-top:10px}
+.foot{text-align:center;padding:20px;color:#555;font-size:12px;border-top:1px solid #1a2a4a;margin-top:20px}
 </style>
 </head>
 <body>
@@ -41,13 +39,10 @@ body{background:#0a0f1c;color:white}
 <div class="header">
 <h1>LUCAS TECH <span>SHOPPING</span></h1>
 <p style="color:#ffcc00;margin-top:5px;font-weight:bold">Plataforma de Negócios • Luanda, Angola 🇦🇴</p>
-<p style="color:#aaa;font-size:13px;margin-top:8px">Tudo de Luanda em um só lugar</p>
 </div>
-
 <div class="search-box">
 <input type="text" placeholder="🔍 O que procuras? Ex: iPhone, hambúrguer, salão...">
 </div>
-
 <div class="filtros">
 <div class="filtro ativo">🔥 Todos</div>
 <div class="filtro">📱 Eletrônicos</div>
@@ -56,89 +51,48 @@ body{background:#0a0f1c;color:white}
 <div class="filtro">👕 Moda</div>
 <div class="filtro">🏠 Casa</div>
 </div>
-
-<div class="plataforma-grid">
-<!-- LOJA DESTAQUE - TUA -->
-<div class="negocio-card destaque">
-<div class="negocio-img">🚀</div>
-<div class="negocio-info" style="flex:1">
+<div class="grid">
+<div class="card destaque">
+<div class="img">🚀</div>
+<div class="info" style="flex:1">
 <h3>LUCAS TECH - Oficial</h3>
 <p>Lojas Online + Visa Virtual + Contas</p>
-<span class="negocio-tag">⭐ VERIFICADO</span>
-<div class="negocio-footer">
+<span class="tag">⭐ VERIFICADO</span>
+<div class="footer-card">
 <span style="color:#ffcc00;font-weight:bold;font-size:13px">Desde 15.000 Kz</span>
-<a href="https://wa.me/244925356739?text=Vi%20no%20Shopping%20Lucas%20Tech" class="btn-wp">WhatsApp</a>
+<a href="https://wa.me/244925356739" class="btn btn-wp">WhatsApp</a>
 </div>
 </div>
 </div>
-
-<div class="negocio-card">
-<div class="negocio-img">📱</div>
-<div class="negocio-info">
-<h3>iPhone Luanda</h3>
-<p>Venda de iPhones</p>
-<span class="negocio-tag">ELETRÔNICOS</span>
-<div class="negocio-footer">
-<span style="font-size:11px;color:#25D366">● Online agora</span>
-<a href="#" class="btn-wp">Ver</a>
+<div class="card">
+<div class="img">📱</div>
+<div class="info"><h3>iPhone Luanda</h3><p>Venda de iPhones</p><span class="tag">ELETRÔNICOS</span><div class="footer-card"><span style="font-size:11px;color:#25D366">● Online</span><a href="#" class="btn btn-wp">Ver</a></div></div>
+</div>
+<div class="card">
+<div class="img">🍔</div>
+<div class="info"><h3>Burger Talatona</h3><p>Hambúrguer artesanal</p><span class="tag">COMIDA</span><div class="footer-card"><span style="font-size:11px;color:#25D366">● 30min</span><a href="#" class="btn btn-wp">Pedir</a></div></div>
+</div>
+<div class="card">
+<div class="img">💇</div>
+<div class="info"><h3>Salão Diva</h3><p>Beleza & Estética</p><span class="tag">BELEZA</span><div class="footer-card"><span style="font-size:11px">Cazenga</span><a href="#" class="btn btn-wp">Agendar</a></div></div>
+</div>
+<div class="card">
+<div class="img">👕</div>
+<div class="info"><h3>Moda Angolana</h3><p>Roupas africanas</p><span class="tag">MODA</span><div class="footer-card"><span style="font-size:11px">Kilamba</span><a href="#" class="btn btn-wp">Ver</a></div></div>
 </div>
 </div>
-</div>
-
-<div class="negocio-card">
-<div class="negocio-img">🍔</div>
-<div class="negocio-info">
-<h3>Burger King - Talatona</h3>
-<p>Hambúrguer artesanal</p>
-<span class="negocio-tag">COMIDA</span>
-<div class="negocio-footer">
-<span style="font-size:11px;color:#25D366">● Entrega 30min</span>
-<a href="#" class="btn-wp">Pedir</a>
-</div>
-</div>
-</div>
-
-<div class="negocio-card">
-<div class="negocio-img">💇</div>
-<div class="negocio-info">
-<h3>Salão Diva</h3>
-<p>Beleza & Estética</p>
-<span class="negocio-tag">BELEZA</span>
-<div class="negocio-footer">
-<span style="font-size:11px;color:#aaa">Cazenga</span>
-<a href="#" class="btn-wp">Agendar</a>
-</div>
-</div>
-</div>
-
-<div class="negocio-card">
-<div class="negocio-img">👕</div>
-<div class="negocio-info">
-<h3>Moda Angolana</h3>
-<p>Roupas africanas</p>
-<span class="negocio-tag">MODA</span>
-<div class="negocio-footer">
-<span style="font-size:11px;color:#aaa">Kilamba</span>
-<a href="#" class="btn-wp">Ver</a>
-</div>
-</div>
-</div>
-</div>
-
-<div class="cta-box">
+<div class="cta">
 <h2>Tem um negócio em Luanda?</h2>
-<p>Coloca tua loja aqui e recebe clientes todo dia no WhatsApp. 50 lojas já estão vendendo.</p>
+<p>Coloca tua loja aqui e recebe clientes todo dia no WhatsApp.</p>
 <h3 style="margin:15px 0">10.000 Kz / mês</h3>
-<p style="font-size:12px">+ Criação da tua loja por 15.000 Kz (uma vez só)</p>
-<br>
-<a class="btn-cta" href="https://wa.me/244925356739?text=Quero%20colocar%20meu%20negócio%20na%20Plataforma%20Lucas%20Tech%20Shopping">QUERO CADASTRAR MEU NEGÓCIO 🚀</a>
+<p style="font-size:12px">+ Criação da tua loja por 15.000 Kz</p>
+<a class="btn-cta" href="https://wa.me/244925356739?text=Quero%20cadastrar%20meu%20negocio%20na%20Plataforma">QUERO CADASTRAR MEU NEGÓCIO 🚀</a>
 <p style="margin-top:10px;font-size:11px">✅ Cadastro em 24H • ✅ Link direto pro teu WhatsApp</p>
 </div>
-
-<div class="footer">
+<div class="foot">
 <b style="color:#ffcc00">LUCAS TECH SHOPPING</b><br>
-Plataforma de Negócios • Feito em Luanda 🇦🇴<br>
-📞 925 356 739 • 953 167 793<br><br>
+Plataforma de Negócios • Luanda 🇦🇴<br>
+📞 925 356 739<br><br>
 <a href="./index.html" style="color:#ffcc00">← Voltar para LUCAS TECH</a>
 </div>
 </body>
