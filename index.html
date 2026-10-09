@@ -8,6 +8,7 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif}
 body{background:#0a0f1c;color:white}
 .top{background:#ffcc00;color:#0a2540;text-align:center;padding:8px;font-weight:bold;font-size:13px}
+.top a{color:#0a2540;text-decoration:none;font-weight:900}
 .header{background:#0a2540;padding:25px;text-align:center;border-bottom:3px solid #ffcc00}
 .header h1{font-size:32px;color:#ffcc00;letter-spacing:1px}
 .header p{margin-top:8px;opacity:0.9}
@@ -17,6 +18,8 @@ body{background:#0a0f1c;color:white}
 .hero p{margin:15px 0;color:#aaa}
 .btn{display:inline-block;background:#25D366;color:white;padding:15px 25px;border-radius:30px;text-decoration:none;font-weight:bold;margin-top:10px}
 .btn-call{background:#0a2540;border:2px solid #ffcc00;color:#ffcc00}
+.btn-shopping{background:#ffcc00;color:#0a2540;border:2px solid #ffcc00;animation:pulse 2s infinite}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:15px;padding:20px;max-width:600px;margin:auto}
 .card{background:#132040;border:1px solid #1e335a;border-radius:12px;padding:15px;text-align:center}
 .card h3{color:#ffcc00;font-size:16px}
@@ -34,9 +37,17 @@ body{background:#0a0f1c;color:white}
 .contas-section{padding:20px;max-width:600px;margin:20px auto;background:#060a14;border-radius:15px;border-top:3px solid #ffcc00}
 .conta-card{background:#132040;border-radius:12px;padding:18px;margin-bottom:14px;border:1px solid #1e335a;display:flex;justify-content:space-between;align-items:center}
 .sob-consulta{color:#ffcc00;font-size:13px;font-weight:800;background:rgba(255,204,0,0.15);padding:4px 10px;border-radius:20px;border:1px dashed #ffcc00}
+.shopping-banner{background:linear-gradient(135deg,#ffcc00,#ffaa00);color:#0a2540;text-align:center;padding:12px;position:sticky;top:0;z-index:999;font-weight:900;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,0.3)}
+.shopping-banner a{color:#0a2540;text-decoration:none}
 </style>
 </head>
 <body>
+
+<!-- NOVO: BANNER FIXO QUE LEVA AO SHOPPING -->
+<div class="shopping-banner">
+<a href="./plataforma.html">🚀 NOVO: LUCAS TECH SHOPPING 🛒 - Ver 50 Lojas de Luanda →</a>
+</div>
+
 <div class="top">🇦🇴 FEITO EM LUANDA - ENTREGA EM 24H</div>
 <div class="header">
 <h1>LUCAS TECH</h1>
@@ -49,6 +60,10 @@ body{background:#0a0f1c;color:white}
 <a class="btn" href="https://wa.me/244925356739?text=Olá%20Lucas%20Tech!%20Quero%20meu%20projeto">💬 WhatsApp: 925 356 739</a>
 <br>
 <a class="btn btn-call" href="tel:+244953167793">📞 Ligar: 953 167 793</a>
+<br><br>
+<!-- NOVO BOTÃO SHOPPING NO PAINEL PRINCIPAL -->
+<a class="btn btn-shopping" href="./plataforma.html">🛒 ENTRAR NO SHOPPING LUCAS TECH - 50 LOJAS</a>
+<p style="margin-top:8px;font-size:11px;color:#ffcc00">⭐ Marketplace Oficial de Luanda</p>
 </div>
 <div class="cards">
 <div class="card"><h3>✅ Loja Própria</h3><p>Com seu nome</p></div>
@@ -133,6 +148,7 @@ body{background:#0a0f1c;color:white}
 <br>
 <a class="btn" style="width:100%" href="https://wa.me/244925356739?text=Olá!%20Quero%20minha%20loja%20por%2015.000%20Kz">QUERO MINHA LOJA AGORA</a>
 <p style="margin-top:15px"><a href="./demo.html" style="color:#25D366;text-decoration:none;font-weight:bold">→ Ver Demonstração: On Express e OG Vendas</a></p>
+<p style="margin-top:10px"><a href="./plataforma.html" style="color:#ffcc00;text-decoration:none;font-weight:bold">🛒 Ver LUCAS TECH SHOPPING - Plataforma de Negócios →</a></p>
 </div>
 
 <div class="footer">
