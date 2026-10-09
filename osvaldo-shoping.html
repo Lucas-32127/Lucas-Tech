@@ -3,71 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OSVALDO SHOPPING - Marketplace Oficial de Luanda</title>
-<link rel="manifest" href="./manifest.json">
-<meta name="theme-color" content="#ffcc00">
+<title>OSVALDO SHOPPING - ADM</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#0a0f1c;color:white}
-.header{background:linear-gradient(135deg,#0a2540,#132040);padding:20px;text-align:center;border-bottom:3px solid #ffcc00;position:sticky;top:0;z-index:99}
-.header h1{color:#ffcc00;font-size:28px;letter-spacing:1px}
-.header h1 span{color:white}
-.search{margin:15px auto;max-width:600px;display:flex;gap:8px;padding:0 15px}
-.search input{flex:1;padding:12px 15px;border-radius:25px;border:2px solid #1e335a;background:#132040;color:white;outline:none}
-.search button{background:#ffcc00;color:#0a2540;border:none;padding:12px 20px;border-radius:25px;font-weight:900}
-.banner{background:linear-gradient(135deg,#ffcc00,#ffaa00);color:#0a2540;text-align:center;padding:10px;font-weight:900;font-size:13px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:15px;max-width:700px;margin:auto}
-.loja{background:#132040;border:1px solid #1e335a;border-radius:14px;overflow:hidden;text-align:center;padding-bottom:12px;transition:0.2s}
-.loja:hover{transform:scale(1.02);border-color:#ffcc00}
+.header{background:#132040;padding:15px;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #ffcc00;position:sticky;top:0;z-index:100}
+.header h1{color:#ffcc00;font-size:20px}
+.btn-top{background:#ffcc00;color:#0a2540;border:none;padding:8px 14px;border-radius:20px;font-weight:900;font-size:12px;margin-left:6px;cursor:pointer}
+.banner{background:#ffcc00;color:#0a2540;text-align:center;padding:8px;font-weight:900;font-size:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px;max-width:700px;margin:auto}
+.loja{background:#132040;border-radius:12px;overflow:hidden;text-align:center;padding-bottom:10px;border:1px solid #1e335a}
 .loja img{width:100%;height:130px;object-fit:cover}
-.loja h3{font-size:14px;margin:8px 5px;color:white}
-.loja p{font-size:11px;color:#aaa;margin-bottom:8px}
-.loja .preco{color:#ffcc00;font-weight:900;font-size:15px}
-.btn-loja{background:#25D366;color:white;padding:7px 14px;border-radius:20px;font-size:12px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:5px}
-.footer{text-align:center;padding:20px;color:#666;font-size:11px;margin-top:20px;border-top:1px solid #1a2a4a}
+.loja h3{font-size:13px;margin:6px}
+.loja .preco{color:#ffcc00;font-weight:900}
+.btn-wpp{background:#25D366;color:white;padding:6px 12px;border-radius:20px;font-size:11px;text-decoration:none;display:inline-block;margin-top:4px;font-weight:bold}
+/* ADM */
+#adm-panel{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.95);z-index:999;padding:20px;overflow-y:auto}
+.caixa{background:#132040;padding:20px;border-radius:12px;max-width:500px;margin:20px auto;border:1px solid #ffcc00}
+.caixa input,.caixa textarea{width:100%;padding:10px;margin:6px 0;border-radius:8px;border:1px solid #1e335a;background:#0a0f1c;color:white}
+.btn-salvar{width:100%;background:#ffcc00;color:#0a2540;padding:12px;border:none;border-radius:25px;font-weight:900;margin-top:10px;cursor:pointer}
+.ferr{background:#0a0f1c;border:1px dashed #ffcc00;padding:12px;border-radius:10px;margin-top:12px}
+.prod-lista{font-size:12px;background:#0a0f1c;padding:8px;border-radius:8px;margin-top:8px;display:flex;justify-content:space-between}
 </style>
 </head>
 <body>
 
 <div class="header">
-<h1>OSVALDO <span>SHOPPING</span> 🛒</h1>
-<p style="font-size:12px;color:#ffcc00;margin-top:4px">Marketplace Oficial de Luanda - Entrega 24H 🇦🇴</p>
+<h1>OSVALDO <span style="color:white">SHOPPING</span></h1>
+<div>
+<button class="btn-top" onclick="abrirFerramentas()">🛠️ FERRAMENTAS</button>
+<button class="btn-top" onclick="abrirADM()">🔐 ADM</button>
+</div>
+</div>
+<div class="banner">🛒 MAIS DE 50 LOJAS - VENDA EM 1 CLIQUE 🇦🇴</div>
+
+<div class="grid" id="grid"></div>
+
+<!-- PAINEL ADM -->
+<div id="adm-panel">
+<div class="caixa">
+<h2 style="color:#ffcc00">🔐 ÁREA ADM - OSVALDO</h2>
+<p style="font-size:12px;color:#aaa;margin:5px 0">Senha padrão: osvaldo123</p>
+<input type="password" id="senha" placeholder="Digite a senha ADM">
+<button class="btn-salvar" onclick="login()">ENTRAR NO ADM</button>
+
+<div id="area-logada" style="display:none">
+<h3 style="margin-top:20px;color:#ffcc00">➕ Adicionar Produto Novo</h3>
+<input id="nome" placeholder="Nome do Produto Ex: Tênis Nike">
+<input id="preco" placeholder="Preço Ex: 18000">
+<input id="foto" placeholder="Link da Foto (ou URL)">
+<input id="lojaNome" placeholder="Nome da Loja Ex: Osvaldo Shoes">
+<button class="btn-salvar" onclick="addProduto()">💾 SALVAR PRODUTO NA LOJA</button>
+
+<h3 style="margin-top:20px">🛠️ FERRAMENTAS DO DONO</h3>
+<div class="ferr">
+<b>1. Gerador de Link de 1 Clique</b>
+<input id="linkZap" placeholder="Digite mensagem">
+<button class="btn-salvar" style="padding:8px" onclick="gerarLink()">Gerar Link WhatsApp</button>
+<p id="resLink" style="font-size:11px;margin-top:8px;word-break:break-all"></p>
 </div>
 
-<div class="banner">🔥 MAIS DE 50 LOJAS - COMPRA EM 1 CLIQUE PELO WHATSAPP 🔥</div>
-
-<div class="search">
-<input id="busca" placeholder="O que queres comprar hoje? Ex: relógio, tênis..." onkeyup="filtrar()">
-<button onclick="filtrar()">Buscar</button>
+<div class="ferr">
+<b>2. Calculadora de Lucro</b>
+<input id="custo" type="number" placeholder="Teu custo">
+<input id="venda" type="number" placeholder="Preço de venda">
+<button class="btn-salvar" style="padding:8px" onclick="calcLucro()">Calcular Lucro</button>
+<p id="resLucro" style="margin-top:8px"></p>
 </div>
 
-<div class="grid" id="grid-lojas">
-<!-- LOJAS DE EXEMPLO - TROCA AQUI -->
-<div class="loja"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400"><h3>Smartwatch X8 Ultra</h3><p>Osvaldo Tech</p><div class="preco">15.000 Kz</div><a class="btn-loja" href="https://wa.me/244925356739?text=Olá%20OSVALDO%20SHOPPING!%20Quero%20o%20Smartwatch%20X8%20por%2015.000%20Kz">Comprar 1 Clique</a></div>
+<h3 style="margin-top:20px">📦 Produtos Cadastrados</h3>
+<div id="listaADM"></div>
 
-<div class="loja"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400"><h3>Tênis Nike Air</h3><p>Osvaldo Shoes</p><div class="preco">18.000 Kz</div><a class="btn-loja" href="https://wa.me/244925356739?text=Olá%20OSVALDO%20SHOPPING!%20Quero%20o%20Tênis%20Nike%20Air">Comprar 1 Clique</a></div>
-
-<div class="loja"><img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=400"><h3>Fone Bluetooth Pro</h3><p>Osvaldo Eletrônicos</p><div class="preco">8.500 Kz</div><a class="btn-loja" href="https://wa.me/244925356739?text=Olá%20OSVALDO%20SHOPPING!%20Quero%20o%20Fone%20Bluetooth%20Pro">Comprar 1 Clique</a></div>
-
-<div class="loja"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400"><h3>Mala de Viagem</h3><p>Osvaldo Bags</p><div class="preco">22.000 Kz</div><a class="btn-loja" href="https://wa.me/244925356739?text=Olá%20OSVALDO%20SHOPPING!%20Quero%20a%20Mala%20de%20Viagem">Comprar 1 Clique</a></div>
+<button class="btn-salvar" style="background:#ff3b3b;color:white;margin-top:20px" onclick="fecharADM()">❌ SAIR DO ADM</button>
 </div>
-
-<div class="footer">
-<b style="color:#ffcc00">OSVALDO SHOPPING</b><br>
-Criado por LUCAS TECH - Luanda, Angola<br>
-WhatsApp: 925 356 739 | Entrega 24H<br><br>
-<a href="./index.html" style="color:#25D366;text-decoration:none">← Voltar para LUCAS TECH</a>
+</div>
 </div>
 
 <script>
-function filtrar(){
- let termo = document.getElementById('busca').value.toLowerCase();
- let lojas = document.querySelectorAll('.loja');
- lojas.forEach(l=>{
-   l.style.display = l.innerText.toLowerCase().includes(termo) ? 'block' : 'none';
- })
-}
-</script>
+let produtos = JSON.parse(localStorage.getItem('osvaldo_produtos')) || [
+{nome:"Smartwatch X8 Ultra",preco:"15000",foto:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400",loja:"Osvaldo Tech"},
+{nome:"Tênis Nike Air",preco:"18000",foto:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",loja:"Osvaldo Shoes"},
+{nome:"Fone Bluetooth Pro",preco:"8500",foto:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400",loja:"Osvaldo Eletrônicos"}
+];
 
+const WHATSAPP_OSVALDO = "244925356739";
+
+function render(){
+let grid=document.getElementById('grid'); grid.innerHTML="";
+produtos.forEach((p,i)=>{
+grid.innerHTML+=`<div class="loja"><img src="${p.foto}"><h3>${p.nome}</h3><p style="font-size:11px;color:#aaa">${p.loja}</p><div class="preco">${p.preco} Kz</div><a class="btn-wpp" href="https://wa.me/${WHATSAPP_OSVALDO}?text=Olá%20OSVALDO%20SHOPPING!%20Quero%20${encodeURIComponent(p.nome)}%20por%20${p.preco}%20Kz">Comprar 1 Clique</a></div>`;
+});
+let lista=document.getElementById('listaADM'); lista.innerHTML="";
+produtos.forEach((p,i)=>{lista.innerHTML+=`<div class="prod-lista">${p.nome} - ${p.preco}Kz <span style="color:#ff3b3b;cursor:pointer" onclick="remover(${i})">Excluir</span></div>`});
+}
+function abrirADM(){document.getElementById('adm-panel').style.display='block';}
+function fecharADM(){document.getElementById('adm-panel').style.display='none';}
+function abrirFerramentas(){abrirADM(); document.getElementById('senha').value='osvaldo123'; login(); window.scrollTo(0,400);}
+function login(){if(document.getElementById('senha').value==='osvaldo123'){document.getElementById('area-logada').style.display='block';}else{alert('Senha errada! Padrão: osvaldo123');}}
+function addProduto(){
+let n=document.getElementById('nome').value, pr=document.getElementById('preco').value, f=document.getElementById('foto').value, lj=document.getElementById('lojaNome').value;
+if(!n||!pr)return alert('Preencha nome e preço');
+produtos.unshift({nome:n,preco:pr,foto:f||'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400',loja:lj||'Osvaldo Shopping'});
+localStorage.setItem('osvaldo_produtos',JSON.stringify(produtos));
+render(); alert('Produto adicionado!'); document.getElementById('nome').value=''; document.getElementById('preco').value='';
+}
+function remover(i){if(confirm('Excluir?')){produtos.splice(i,1); localStorage.setItem('osvaldo_produtos',JSON.stringify(produtos)); render();}}
+function gerarLink(){let msg=document.getElementById('linkZap').value; let link=`https://wa.me/${WHATSAPP_OSVALDO}?text=${encodeURIComponent(msg)}`; document.getElementById('resLink').innerHTML=`Teu link: <br><a href="${link}" style="color:#25D366">${link}</a>`;}
+function calcLucro(){let c=parseFloat(document.getElementById('custo').value)||0, v=parseFloat(document.getElementById('venda').value)||0; let lucro=v-c; let perc=c>0?((lucro/c)*100).toFixed(1):0; document.getElementById('resLucro').innerHTML=`Lucro: <b style="color:#25D366">${lucro} Kz</b> (${perc}%)`;}
+render();
+</script>
 </body>
 </html>
