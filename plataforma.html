@@ -3,97 +3,483 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plataforma de Negócios - LUCAS TECH Shopping Luanda</title>
+<title>LUCAS TECH SHOPPING | Angola</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#0a0f1c;color:white}
-.top{background:#ffcc00;color:#0a2540;text-align:center;padding:10px;font-weight:900;font-size:14px}
-.header{background:#0a2540;padding:25px;text-align:center;border-bottom:3px solid #ffcc00}
-.header h1{font-size:32px;color:#ffcc00}
-.header h1 span{color:white}
-.search-box{max-width:600px;margin:20px auto;padding:0 20px}
-.search-box input{width:100%;padding:15px;border-radius:30px;border:2px solid #ffcc00;background:#132040;color:white;font-size:16px;outline:none}
-.filtros{display:flex;gap:10px;overflow-x:auto;padding:10px 20px;max-width:700px;margin:auto}
-.filtro{background:#132040;border:1px solid #1e335a;padding:8px 16px;border-radius:20px;font-size:13px;white-space:nowrap}
-.filtro.ativo{background:#ffcc00;color:#0a2540;font-weight:bold}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;padding:20px;max-width:700px;margin:auto}
-.card{background:#132040;border-radius:15px;overflow:hidden;border:1px solid #1e335a}
-.card:hover{border-color:#ffcc00}
-.img{height:110px;background:linear-gradient(135deg,#1e335a,#0a2540);display:flex;align-items:center;justify-content:center;font-size:40px}
-.info{padding:12px}
-.info h3{font-size:14px;margin-bottom:3px}
-.info p{font-size:11px;color:#aaa;margin-bottom:8px}
-.tag{background:rgba(255,204,0,0.15);color:#ffcc00;font-size:10px;padding:3px 8px;border-radius:10px;font-weight:bold}
-.footer-card{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
-.btn{color:white;padding:6px 12px;border-radius:20px;font-size:11px;text-decoration:none;font-weight:bold}
-.btn-wp{background:#25D366}
-.destaque{grid-column:1 / -1;background:linear-gradient(135deg,#0a2540,#132040);border:2px solid #ffcc00;display:flex;align-items:center;padding:15px}
-.destaque .img{width:80px;height:80px;border-radius:12px;margin-right:15px}
-.cta{background:#ffcc00;border-radius:15px;padding:25px;margin:20px auto;max-width:600px;text-align:center;color:#0a2540}
-.btn-cta{background:#0a2540;color:#ffcc00;padding:15px 30px;border-radius:30px;text-decoration:none;font-weight:900;display:inline-block;font-size:16px;margin-top:10px}
-.foot{text-align:center;padding:20px;color:#555;font-size:12px;border-top:1px solid #1a2a4a;margin-top:20px}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#0a0f1c;color:#fff}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.top{background:#ffcc00;color:#0a2540;text-align:center;padding:12px;font-weight:bold;font-size:13px}
+header{background:#0a2540;text-align:center;padding:25px 15px;border-bottom:3px solid #ffcc00}
+header h1{color:#ffcc00;font-size:29px}
+header h1 span{color:#fff}
+header p{margin-top:8px;font-size:13px}
+nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:14px;background:#101c32}
+nav button{background:#1b3154;color:#fff;border:1px solid #345078;border-radius:20px;padding:10px 13px}
+nav button:hover,.ativo{background:#ffcc00!important;color:#0a2540!important}
+.container{max-width:950px;margin:auto;padding:20px}
+section{display:none}
+section.visivel{display:block}
+h2{color:#ffcc00;margin:15px 0}
+.search{width:100%;padding:15px;border-radius:25px;border:2px solid #ffcc00;background:#132040;color:#fff;margin:12px 0}
+.filtros{display:flex;gap:8px;overflow-x:auto;padding:10px 0}
+.filtros button{background:#132040;color:#fff;border:1px solid #345078;border-radius:20px;padding:10px;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:20px}
+.card{background:#132040;border:1px solid #263d64;border-radius:15px;overflow:hidden}
+.emoji{font-size:45px;text-align:center;padding:25px;background:#0a2540}
+.info{padding:15px}
+.info h3{font-size:16px;margin-bottom:7px}
+.info p{font-size:12px;color:#bbb;margin-bottom:10px}
+.preco{color:#ffcc00;font-weight:bold;margin:10px 0}
+.btn{display:inline-block;background:#ffcc00;color:#0a2540;border:0;border-radius:20px;padding:11px 15px;font-weight:bold;text-decoration:none;margin:5px 3px 5px 0}
+.btn-verde{background:#25d366;color:#fff}
+.box{background:#132040;padding:20px;border-radius:15px;margin:15px 0}
+.campo{width:100%;padding:13px;margin:8px 0;border:1px solid #345078;border-radius:8px;background:#0a2540;color:white}
+.item{padding:12px;border-bottom:1px solid #345078}
+.total{font-size:22px;color:#ffcc00;margin:15px 0}
+.aviso{background:#473b12;padding:12px;border-radius:8px;font-size:13px;margin:15px 0;line-height:1.5}
+footer{text-align:center;padding:25px;color:#aaa;border-top:1px solid #263d64;margin-top:30px}
+footer a{color:#ffcc00}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
+
 <body>
-<div class="top">🚀 NOVA PLATAFORMA DE NEGÓCIOS DE LUANDA - 50 LOJAS JÁ CADASTRADAS</div>
-<div class="header">
+
+<div class="top">
+🚀 LUCAS TECH SHOPPING — CADASTRA O TEU NEGÓCIO!
+</div>
+
+<header>
 <h1>LUCAS TECH <span>SHOPPING</span></h1>
-<p style="color:#ffcc00;margin-top:5px;font-weight:bold">Plataforma de Negócios • Luanda, Angola 🇦🇴</p>
-</div>
-<div class="search-box">
-<input type="text" placeholder="🔍 O que procuras? Ex: iPhone, hambúrguer, salão...">
-</div>
+<p>O teu mercado digital em Luanda, Angola 🇦🇴</p>
+</header>
+
+<nav>
+<button onclick="abrir('inicio',this)" class="ativo">🏠 Início</button>
+<button onclick="abrir('carrinho',this)">🛒 Carrinho</button>
+<button onclick="abrir('cadastro',this)">🏪 Vendedores</button>
+<button onclick="abrir('painel',this)">📦 Painel Demo</button>
+</nav>
+
+<main class="container">
+
+<section id="inicio" class="visivel">
+<h2>🏪 Explora os nossos produtos</h2>
+
+<input class="search" id="pesquisa"
+placeholder="🔍 Procurar produtos ou lojas..."
+oninput="mostrarProdutos()">
+
 <div class="filtros">
-<div class="filtro ativo">🔥 Todos</div>
-<div class="filtro">📱 Eletrônicos</div>
-<div class="filtro">🍔 Comida</div>
-<div class="filtro">💇 Beleza</div>
-<div class="filtro">👕 Moda</div>
-<div class="filtro">🏠 Casa</div>
+<button class="ativo" onclick="filtrar('todos',this)">🔥 Todos</button>
+<button onclick="filtrar('eletronicos',this)">📱 Eletrónicos</button>
+<button onclick="filtrar('comida',this)">🍔 Comida</button>
+<button onclick="filtrar('beleza',this)">💇 Beleza</button>
+<button onclick="filtrar('moda',this)">👕 Moda</button>
+<button onclick="filtrar('casa',this)">🏠 Casa</button>
 </div>
-<div class="grid">
-<div class="card destaque">
-<div class="img">🚀</div>
-<div class="info" style="flex:1">
-<h3>LUCAS TECH - Oficial</h3>
-<p>Lojas Online + Visa Virtual + Contas</p>
-<span class="tag">⭐ VERIFICADO</span>
-<div class="footer-card">
-<span style="color:#ffcc00;font-weight:bold;font-size:13px">Desde 15.000 Kz</span>
-<a href="https://wa.me/244925356739" class="btn btn-wp">WhatsApp</a>
+
+<div id="produtos" class="grid"></div>
+</section>
+
+<section id="carrinho">
+<h2>🛒 O teu carrinho</h2>
+<div class="box">
+<div id="itensCarrinho"></div>
+<div id="total" class="total"></div>
+
+<h3>Forma de pagamento</h3>
+<select id="pagamento" class="campo">
+<option value="presencial">Pagamento presencial na recolha</option>
+<option value="multicaixa">Multicaixa Express</option>
+</select>
+
+<div class="aviso">
+⚠️ O checkout é demonstrativo. Nenhum pagamento real será processado.
 </div>
+
+<button class="btn" onclick="finalizar()">
+Confirmar encomenda
+</button>
+<button class="btn" onclick="limparCarrinho()">
+Limpar carrinho
+</button>
 </div>
+</section>
+
+<section id="cadastro">
+<h2>🏪 Registar o teu negócio</h2>
+
+<div class="box">
+<p>Divulga os teus produtos na LUCAS TECH SHOPPING.</p>
+
+<input id="nomeLoja" class="campo" placeholder="Nome da loja">
+<input id="nomeDono" class="campo" placeholder="Nome do responsável">
+<input id="telefoneLoja" class="campo" placeholder="WhatsApp: 9XXXXXXXX">
+<select id="categoriaLoja" class="campo">
+<option value="eletronicos">Eletrónicos</option>
+<option value="comida">Comida</option>
+<option value="beleza">Beleza</option>
+<option value="moda">Moda</option>
+<option value="casa">Casa</option>
+</select>
+
+<div class="aviso">
+💰 Plano anunciado: 10.000 Kz/mês + 15.000 Kz pela criação da loja.
+O registo nesta versão é apenas uma demonstração.
 </div>
-<div class="card">
-<div class="img">📱</div>
-<div class="info"><h3>iPhone Luanda</h3><p>Venda de iPhones</p><span class="tag">ELETRÔNICOS</span><div class="footer-card"><span style="font-size:11px;color:#25D366">● Online</span><a href="#" class="btn btn-wp">Ver</a></div></div>
+
+<button class="btn" onclick="registarLoja()">
+Registar loja (demonstração)
+</button>
+
+<p id="resultadoCadastro"></p>
 </div>
-<div class="card">
-<div class="img">🍔</div>
-<div class="info"><h3>Burger Talatona</h3><p>Hambúrguer artesanal</p><span class="tag">COMIDA</span><div class="footer-card"><span style="font-size:11px;color:#25D366">● 30min</span><a href="#" class="btn btn-wp">Pedir</a></div></div>
+
+<a class="btn btn-verde"
+href="https://wa.me/244925356739?text=Quero%20cadastrar%20a%20minha%20loja"
+target="_blank" rel="noopener noreferrer">
+Falar com LUCAS TECH no WhatsApp
+</a>
+</section>
+
+<section id="painel">
+<h2>📦 Painel demonstrativo</h2>
+
+<div class="aviso">
+Este painel é público e demonstrativo. Ainda não possui login
+nem permissões de vendedor. Não introduzas dados privados.
 </div>
-<div class="card">
-<div class="img">💇</div>
-<div class="info"><h3>Salão Diva</h3><p>Beleza & Estética</p><span class="tag">BELEZA</span><div class="footer-card"><span style="font-size:11px">Cazenga</span><a href="#" class="btn btn-wp">Agendar</a></div></div>
+
+<div class="box">
+<h3>Adicionar produto de demonstração</h3>
+
+<input id="produtoNome" class="campo" placeholder="Nome do produto">
+<input id="produtoPreco" class="campo" type="number"
+min="1" step="0.01" placeholder="Preço em Kz">
+
+<select id="produtoCategoria" class="campo">
+<option value="eletronicos">Eletrónicos</option>
+<option value="comida">Comida</option>
+<option value="beleza">Beleza</option>
+<option value="moda">Moda</option>
+<option value="casa">Casa</option>
+</select>
+
+<button class="btn" onclick="adicionarProduto()">
+Adicionar produto
+</button>
+
+<p id="mensagemPainel"></p>
 </div>
-<div class="card">
-<div class="img">👕</div>
-<div class="info"><h3>Moda Angolana</h3><p>Roupas africanas</p><span class="tag">MODA</span><div class="footer-card"><span style="font-size:11px">Kilamba</span><a href="#" class="btn btn-wp">Ver</a></div></div>
-</div>
-</div>
-<div class="cta">
-<h2>Tem um negócio em Luanda?</h2>
-<p>Coloca tua loja aqui e recebe clientes todo dia no WhatsApp.</p>
-<h3 style="margin:15px 0">10.000 Kz / mês</h3>
-<p style="font-size:12px">+ Criação da tua loja por 15.000 Kz</p>
-<a class="btn-cta" href="https://wa.me/244925356739?text=Quero%20cadastrar%20meu%20negocio%20na%20Plataforma">QUERO CADASTRAR MEU NEGÓCIO 🚀</a>
-<p style="margin-top:10px;font-size:11px">✅ Cadastro em 24H • ✅ Link direto pro teu WhatsApp</p>
-</div>
-<div class="foot">
-<b style="color:#ffcc00">LUCAS TECH SHOPPING</b><br>
-Plataforma de Negócios • Luanda 🇦🇴<br>
+</section>
+
+</main>
+
+<footer>
+<strong>LUCAS TECH SHOPPING</strong><br>
+Luanda, Angola 🇦🇴<br>
 📞 925 356 739<br><br>
-<a href="./index.html" style="color:#ffcc00">← Voltar para LUCAS TECH</a>
-</div>
+<a href="./index.html">← Voltar para LUCAS TECH</a>
+</footer>
+
+<script>
+const whatsappOficial = "244925356739";
+
+const produtos = [
+{
+id:1,
+nome:"Serviço de criação de loja online",
+loja:"LUCAS TECH",
+categoria:"eletronicos",
+preco:15000,
+emoji:"🚀"
+},
+{
+id:2,
+nome:"iPhone (produto demonstrativo)",
+loja:"Loja de exemplo",
+categoria:"eletronicos",
+preco:250000,
+emoji:"📱"
+},
+{
+id:3,
+nome:"Hambúrguer (produto demonstrativo)",
+loja:"Restaurante de exemplo",
+categoria:"comida",
+preco:3500,
+emoji:"🍔"
+},
+{
+id:4,
+nome:"Serviço de beleza (demonstração)",
+loja:"Salão de exemplo",
+categoria:"beleza",
+preco:5000,
+emoji:"💇"
+},
+{
+id:5,
+nome:"Roupa africana (demonstração)",
+loja:"Moda de exemplo",
+categoria:"moda",
+preco:12000,
+emoji:"👕"
+},
+{
+id:6,
+nome:"Artigo para casa (demonstração)",
+loja:"Casa de exemplo",
+categoria:"casa",
+preco:8000,
+emoji:"🏠"
+}
+];
+
+let carrinho = [];
+let categoriaAtual = "todos";
+let proximoId = 7;
+
+function moeda(valor){
+return Number(valor).toLocaleString("pt-PT") + " Kz";
+}
+
+function abrir(id,botao){
+document.querySelectorAll("main section").forEach(s=>{
+s.classList.remove("visivel");
+});
+
+document.getElementById(id).classList.add("visivel");
+
+document.querySelectorAll("nav button").forEach(b=>{
+b.classList.remove("ativo");
+});
+
+if(botao) botao.classList.add("ativo");
+
+if(id==="carrinho") atualizarCarrinho();
+window.scrollTo(0,0);
+}
+
+function filtrar(categoria,botao){
+categoriaAtual=categoria;
+
+document.querySelectorAll(".filtros button").forEach(b=>{
+b.classList.remove("ativo");
+});
+
+botao.classList.add("ativo");
+mostrarProdutos();
+}
+
+function mostrarProdutos(){
+const pesquisa=document.getElementById("pesquisa")
+.value.toLowerCase().trim();
+
+const area=document.getElementById("produtos");
+area.innerHTML="";
+
+const lista=produtos.filter(p=>{
+const categoriaOk=categoriaAtual==="todos" ||
+p.categoria===categoriaAtual;
+
+const pesquisaOk=(p.nome+" "+p.loja)
+.toLowerCase().includes(pesquisa);
+
+return categoriaOk && pesquisaOk;
+});
+
+if(lista.length===0){
+area.textContent="Nenhum produto encontrado.";
+return;
+}
+
+lista.forEach(p=>{
+const card=document.createElement("article");
+card.className="card";
+
+const emoji=document.createElement("div");
+emoji.className="emoji";
+emoji.textContent=p.emoji;
+
+const info=document.createElement("div");
+info.className="info";
+
+const titulo=document.createElement("h3");
+titulo.textContent=p.nome;
+
+const loja=document.createElement("p");
+loja.textContent=p.loja;
+
+const preco=document.createElement("div");
+preco.className="preco";
+preco.textContent=moeda(p.preco);
+
+const botao=document.createElement("button");
+botao.className="btn";
+botao.textContent="🛒 Adicionar";
+botao.onclick=()=>adicionarCarrinho(p.id);
+
+info.append(titulo,loja,preco,botao);
+card.append(emoji,info);
+area.appendChild(card);
+});
+}
+
+function adicionarCarrinho(id){
+const produto=produtos.find(p=>p.id===id);
+
+if(!produto) return;
+
+carrinho.push({...produto});
+alert("Produto adicionado ao carrinho!");
+}
+
+function atualizarCarrinho(){
+const area=document.getElementById("itensCarrinho");
+area.innerHTML="";
+
+let total=0;
+
+if(carrinho.length===0){
+area.textContent="O carrinho está vazio.";
+}
+
+carrinho.forEach((p,indice)=>{
+total+=p.preco;
+
+const linha=document.createElement("div");
+linha.className="item";
+
+const texto=document.createElement("span");
+texto.textContent=p.nome+" — "+moeda(p.preco)+" ";
+
+const remover=document.createElement("button");
+remover.className="btn";
+remover.textContent="Remover";
+remover.onclick=()=>{
+carrinho.splice(indice,1);
+atualizarCarrinho();
+};
+
+linha.append(texto,remover);
+area.appendChild(linha);
+});
+
+document.getElementById("total").textContent=
+"Total: "+moeda(total);
+}
+
+function limparCarrinho(){
+carrinho=[];
+atualizarCarrinho();
+}
+
+function finalizar(){
+if(carrinho.length===0){
+alert("Adiciona primeiro um produto.");
+return;
+}
+
+const pagamento=document.getElementById("pagamento").value;
+
+if(pagamento==="multicaixa"){
+alert("Multicaixa Express ainda não está integrado. Nenhum pagamento foi efetuado.");
+return;
+}
+
+const total=carrinho.reduce((s,p)=>s+p.preco,0);
+
+const resumo=carrinho.map(p=>p.nome+" - "+moeda(p.preco))
+.join("\n");
+
+const mensagem=
+"Olá LUCAS TECH! Gostaria de consultar a disponibilidade desta encomenda:\n"+
+resumo+
+"\nTotal indicativo: "+moeda(total)+
+"\nPagamento pretendido: presencial na recolha."+
+"\nAguardo confirmação de disponibilidade e preço.";
+
+window.open(
+"https://wa.me/"+whatsappOficial+
+"?text="+encodeURIComponent(mensagem),
+"_blank"
+);
+}
+
+function registarLoja(){
+const nome=document.getElementById("nomeLoja").value.trim();
+const dono=document.getElementById("nomeDono").value.trim();
+const telefone=document.getElementById("telefoneLoja").value.trim();
+
+const resultado=document.getElementById("resultadoCadastro");
+
+if(!nome || !dono || !/^9\d{8}$/.test(telefone)){
+resultado.textContent=
+"Preenche os dados e indica um número angolano com 9 dígitos.";
+return;
+}
+
+resultado.textContent=
+"Formulário validado. Para solicitar o cadastro real, contacta a LUCAS TECH pelo WhatsApp.";
+
+const mensagem=
+"Olá! Quero cadastrar a minha loja na LUCAS TECH SHOPPING."+
+"\nLoja: "+nome+
+"\nResponsável: "+dono+
+"\nTelefone: "+telefone+
+"\nCategoria: "+document.getElementById("categoriaLoja").value;
+
+window.open(
+"https://wa.me/"+whatsappOficial+
+"?text="+encodeURIComponent(mensagem),
+"_blank"
+);
+}
+
+function adicionarProduto(){
+const nome=document.getElementById("produtoNome").value.trim();
+const preco=Number(document.getElementById("produtoPreco").value);
+const categoria=document.getElementById("produtoCategoria").value;
+
+const mensagem=document.getElementById("mensagemPainel");
+
+if(!nome || !Number.isFinite(preco) || preco<=0){
+mensagem.textContent="Indica um nome e um preço válido.";
+return;
+}
+
+const emojis={
+eletronicos:"📱",
+comida:"🍔",
+beleza:"💇",
+moda:"👕",
+casa:"🏠"
+};
+
+produtos.push({
+id:proximoId++,
+nome:nome+" (demonstração)",
+loja:"Loja demonstrativa",
+categoria,
+preco,
+emoji:emojis[categoria]
+});
+
+mensagem.textContent=
+"Produto adicionado nesta sessão! Não ficará guardado após recarregar a página.";
+
+document.getElementById("produtoNome").value="";
+document.getElementById("produtoPreco").value="";
+
+mostrarProdutos();
+}
+
+mostrarProdutos();
+</script>
+
 </body>
 </html>
