@@ -480,6 +480,42 @@ mostrarProdutos();
 
 mostrarProdutos();
 </script>
+<!-- LUCAS TECH SHOPPING - Preparação da autenticação -->
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut
+  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBiSsNAdSh6DNngoShXPjcLNva1VHND1hA",
+    authDomain: "lucas-tech-shopping.firebaseapp.com",
+    projectId: "lucas-tech-shopping",
+    storageBucket: "lucas-tech-shopping.firebasestorage.app",
+    messagingSenderId: "729296290435",
+    appId: "1:729296290435:web:0969a1e0fdb2de1c27d1b6"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // Disponibiliza as funções para a interface da plataforma.
+  window.lucasTechAuth = {
+    registar: (email, password) =>
+      createUserWithEmailAndPassword(auth, email, password),
+
+    entrar: (email, password) =>
+      signInWithEmailAndPassword(auth, email, password),
+
+    sair: () => signOut(auth)
+  };
+
+  console.log("Firebase Authentication preparado.");
+</script>
 
 </body>
 </html>
