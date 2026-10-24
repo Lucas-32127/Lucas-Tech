@@ -64,6 +64,46 @@ footer a{color:#ffcc00}
 </nav>
 
 <main class="container">
+<section id="conta">
+  <h2>👤 A minha conta</h2>
+
+  <div class="box">
+    <p id="estadoConta">Inicia sessão ou cria a tua conta.</p>
+
+```
+<input
+  id="emailConta"
+  class="campo"
+  type="email"
+  placeholder="O teu endereço de e-mail"
+  autocomplete="email"
+>
+
+<input
+  id="senhaConta"
+  class="campo"
+  type="password"
+  placeholder="Palavra-passe (mínimo 6 caracteres)"
+  autocomplete="current-password"
+>
+
+<button class="btn" onclick="registarConta()">
+  Criar conta
+</button>
+
+<button class="btn" onclick="entrarConta()">
+  Iniciar sessão
+</button>
+
+<button class="btn" onclick="terminarSessao()">
+  Terminar sessão
+</button>
+
+<p id="mensagemConta" role="status" aria-live="polite"></p>
+```
+
+  </div>
+</section>
 
 <section id="inicio" class="visivel">
 <h2>🏪 Explora os nossos produtos</h2>
